@@ -44,6 +44,8 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/markdownit',
+    'nuxt-fontawesome'
   ],
   /*
   ** Axios module configuration
@@ -71,6 +73,17 @@ export default {
         }
       }
     }
+  },
+
+  fontawesome: {
+    component: 'fa'
+  },
+
+  markdownit: {
+    html: true,
+    injected: true,
+    linkify: true,
+    breaks: false
   },
   /*
   ** Build configuration
