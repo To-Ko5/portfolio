@@ -6,11 +6,12 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
 import Item from '~/components/Item.vue'
 import { createClient } from '~/plugins/contentful.js'
 const client = createClient()
 
-export default {
+export default Vue.extend({
   components: {
     Item
   },
@@ -28,7 +29,7 @@ export default {
       works: response.items
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
