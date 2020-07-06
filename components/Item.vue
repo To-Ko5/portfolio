@@ -13,13 +13,19 @@
       </v-card-subtitle>
       <v-card-text>
         <v-chip-group>
-          <v-chip>{{ work.fields.category.fields.name }}</v-chip>
+          <v-chip
+            ><nuxt-link :to="'/category/' + work.fields.category.sys.id">{{
+              work.fields.category.fields.name
+            }}</nuxt-link></v-chip
+          >
         </v-chip-group>
         <v-spacer></v-spacer>
         <v-divider></v-divider>
         <v-chip-group>
           <v-chip v-for="tag in work.fields.tag" :key="tag.sys.id">
-            {{ tag.fields.name }}
+            <nuxt-link :to="'/tag/' + tag.sys.id">
+              {{ tag.fields.name }}
+            </nuxt-link>
           </v-chip>
         </v-chip-group>
       </v-card-text>
