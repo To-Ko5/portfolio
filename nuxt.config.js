@@ -9,8 +9,8 @@ export default {
    ** Headers of the page
    */
   env: {
-    CTF_SPACE_ID: config.CTF_SPACE_ID,
-    CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN
+    CTF_SPACE_ID: process.env.API_SPACE_ID,
+    CTF_CDA_ACCESS_TOKEN: process.env.API_CDA_ACCESS_TOKEN
   },
 
   head: {
@@ -50,7 +50,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/markdownit',
-    'nuxt-fontawesome'
+    'nuxt-fontawesome',
+    '@nuxtjs/dotenv'
   ],
   /*
    ** Axios module configuration
