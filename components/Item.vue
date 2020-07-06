@@ -23,16 +23,18 @@
           </v-chip>
         </v-chip-group>
       </v-card-text>
+      <nuxt-link :to="/work/ + work.fields.slug">詳細を見る</nuxt-link>
     </v-card>
   </v-layout>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { PropType } from 'vue'
+
 export default Vue.extend({
   props: {
     work: {
-      type: <any>{}
+      type: Object as PropType<{}>
     }
   }
 })
