@@ -1,17 +1,17 @@
 <template>
-  <div class="search-form d-flex">
+  <div class="search-form">
     <v-text-field
       v-model="searchWords"
       outlined
       clearable
+      dense
+      color="white"
       label="Search"
       type="text"
+      class="search-form__text"
     >
-      <template v-slot:append>
-        <v-fade-transition leave-absolute> </v-fade-transition>
-      </template>
     </v-text-field>
-    <v-btn icon color="deep-orange" @click="sendSearch">
+    <v-btn icon :color="color" @click="sendSearch">
       <v-icon>mdi-magnify</v-icon>
     </v-btn>
   </div>
@@ -20,22 +20,48 @@
 <script lang="ts">
 import Vue from 'vue'
 
+const seachFormColor = {
+  defaultColor: 'white',
+  activeColor: 'orange'
+}
+
 export default Vue.extend({
   data() {
     return {
-      searchWords: ''
+      searchWords: '',
+      color: seachFormColor.defaultColor
+    }
+  },
+  watch: {
+    searchWords() {
+      const word = this.searchWords.trim()
+      if (word) {
+        this.color = seachFormColor.activeColor
+      } else {
+        this.color = seachFormColor.defaultColor
+      }
     }
   },
   methods: {
     sendSearch() {
-      this.$router.push('/search/' + this.searchWords)
+      const word = this.searchWords.trim()
+      if (!word) {
+        this.searchWords = ''
+        return
+      }
+      this.$router.push('/search/' + word)
     }
   }
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .search-form {
   height: 100%;
+  display: flex;
+  align-items: center;
+  &__text {
+    height: 40px;
+  }
 }
 </style>
