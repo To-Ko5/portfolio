@@ -1,6 +1,6 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-card class="mx-auto" max-width="344">
+  <div class="item">
+    <v-card class="item__card">
       <v-img
         class="white--text align-end"
         height="200px"
@@ -31,7 +31,7 @@
       </v-card-text>
       <nuxt-link :to="/work/ + work.fields.slug">詳細を見る</nuxt-link>
     </v-card>
-  </v-layout>
+  </div>
 </template>
 
 <script lang="ts">
@@ -45,3 +45,13 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.item {
+  &__card {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 333px;
+  }
+}
+</style>
