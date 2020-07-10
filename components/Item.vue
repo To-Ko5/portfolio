@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <v-card class="item__card">
+    <v-card class="item__card" raised>
       <v-img
         class="white--text align-end"
         height="200px"
@@ -11,33 +11,67 @@
       <v-card-subtitle>
         {{ work.fields.subtitle }}
       </v-card-subtitle>
-      <v-card-text>
-        <v-chip to="/category" label outlined text-color="white">
-          <v-icon left>mdi-label</v-icon>
+      <v-card-actions>
+        <v-btn
+          small
+          to="/category"
+          outlined
+          color="grey lighten-1"
+          exact
+          class="item__label"
+        >
+          <v-icon small>mdi-label</v-icon>
           Category
-        </v-chip>
-        <v-chip-group>
-          <v-chip link
-            ><nuxt-link :to="'/category/' + work.fields.category.sys.id">{{
-              work.fields.category.fields.name
-            }}</nuxt-link></v-chip
-          >
-        </v-chip-group>
-        <v-spacer></v-spacer>
-        <v-divider></v-divider>
-        <v-chip to="/tag" label outlined text-color="white">
-          <v-icon left>mdi-label</v-icon>
-          Tags
-        </v-chip>
-        <v-chip-group>
-          <v-chip v-for="tag in work.fields.tag" :key="tag.sys.id">
-            <nuxt-link :to="'/tag/' + tag.sys.id">
+        </v-btn>
+        <v-btn small :to="'/category/' + work.fields.category.sys.id">{{
+          work.fields.category.fields.name
+        }}</v-btn>
+      </v-card-actions>
+
+      <v-card-actions>
+        <v-btn
+          small
+          to="/tag"
+          outlined
+          color="grey lighten-1"
+          exact
+          class="item__label"
+        >
+          <v-icon small>mdi-label</v-icon>
+          Tag
+        </v-btn>
+
+        <div v-if="work.fields.tag.length <= 1">
+          <div v-for="tag in work.fields.tag" :key="tag.sys.id">
+            <v-btn small :to="'/tag/' + tag.sys.id">
               {{ tag.fields.name }}
-            </nuxt-link>
-          </v-chip>
-        </v-chip-group>
-      </v-card-text>
-      <nuxt-link :to="/work/ + work.fields.slug">詳細を見る</nuxt-link>
+            </v-btn>
+          </div>
+        </div>
+
+        <v-menu v-else open-on-hover transition="slide-y-transition" offset-x>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn small v-bind="attrs" v-on="on">
+              <v-icon>mdi-dots-horizontal</v-icon>
+            </v-btn>
+          </template>
+
+          <v-list>
+            <v-list-item
+              v-for="tag in work.fields.tag"
+              :key="tag.sys.id"
+              :to="'/tag/' + tag.sys.id"
+            >
+              <v-list-item-title>{{ tag.fields.name }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+
+        <v-spacer></v-spacer>
+        <v-btn :to="/work/ + work.fields.slug" outlined width="100px"
+          >見る</v-btn
+        >
+      </v-card-actions>
     </v-card>
   </div>
 </template>
@@ -50,6 +84,9 @@ export default Vue.extend({
     work: {
       type: Object as PropType<{}>
     }
+  },
+  mounted() {
+    console.log(this.work)
   }
 })
 </script>
@@ -60,6 +97,9 @@ export default Vue.extend({
     margin: 0 auto;
     width: 100%;
     max-width: 333px;
+  }
+  &__label {
+    margin-right: 8px;
   }
 }
 </style>
