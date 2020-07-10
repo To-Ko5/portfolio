@@ -8,9 +8,15 @@
         v-for="category in categories"
         :key="category.sys.id"
       >
-        <v-btn outlined :to="'/category/' + category.sys.id" width="100%">{{
-          category.fields.name
-        }}</v-btn>
+        <v-btn
+          outlined
+          :to="{
+            path: '/category/' + category.sys.id,
+            query: { category: category.fields.name }
+          }"
+          width="100%"
+          >{{ category.fields.name }}</v-btn
+        >
       </v-col>
     </Grid>
   </div>

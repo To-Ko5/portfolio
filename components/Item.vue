@@ -23,9 +23,14 @@
           <v-icon small>mdi-label</v-icon>
           Category
         </v-btn>
-        <v-btn small :to="'/category/' + work.fields.category.sys.id">{{
-          work.fields.category.fields.name
-        }}</v-btn>
+        <v-btn
+          small
+          :to="{
+            path: '/category/' + work.fields.category.sys.id,
+            query: { category: work.fields.category.fields.name }
+          }"
+          >{{ work.fields.category.fields.name }}</v-btn
+        >
       </v-card-actions>
 
       <v-card-actions>
@@ -43,7 +48,13 @@
 
         <div v-if="work.fields.tag.length <= 1">
           <div v-for="tag in work.fields.tag" :key="tag.sys.id">
-            <v-btn small :to="'/tag/' + tag.sys.id">
+            <v-btn
+              small
+              :to="{
+                path: '/tag/' + tag.sys.id,
+                query: { tag: tag.fields.name }
+              }"
+            >
               {{ tag.fields.name }}
             </v-btn>
           </div>
@@ -60,7 +71,10 @@
             <v-list-item
               v-for="tag in work.fields.tag"
               :key="tag.sys.id"
-              :to="'/tag/' + tag.sys.id"
+              :to="{
+                path: '/tag/' + tag.sys.id,
+                query: { tag: tag.fields.name }
+              }"
             >
               <v-list-item-title>{{ tag.fields.name }}</v-list-item-title>
             </v-list-item>
@@ -68,8 +82,8 @@
         </v-menu>
 
         <v-spacer></v-spacer>
-        <v-btn :to="/work/ + work.fields.slug" outlined width="100px"
-          >見る</v-btn
+        <v-btn :to="/work/ + work.fields.slug" outlined width="120px"
+          >read more</v-btn
         >
       </v-card-actions>
     </v-card>
@@ -84,9 +98,6 @@ export default Vue.extend({
     work: {
       type: Object as PropType<{}>
     }
-  },
-  mounted() {
-    console.log(this.work)
   }
 })
 </script>
