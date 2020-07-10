@@ -1,15 +1,9 @@
 <template>
-  <div class="tag__id">
+  <div class="tag">
+    <h2>Tag</h2>
     <Grid>
-      <v-col
-        cols="12"
-        sm="6"
-        md="4"
-        lg="4"
-        v-for="work in works"
-        :key="work.sys.id"
-      >
-        <Item :work="work" />
+      <v-col cols="4" v-for="tag in tags" :key="tag.sys.id">
+        <v-btn outlined :to="'/tag/' + tag.sys.id">{{ tag.fields.name }}</v-btn>
       </v-col>
     </Grid>
   </div>
@@ -17,33 +11,28 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Item from '~/components/Item.vue'
 import Grid from '~/components/Grid.vue'
-
 import { createClient } from '~/plugins/contentful.js'
 
 const client = createClient()
 
 export default Vue.extend({
   components: {
-    Item,
     Grid
   },
-  async asyncData({ params }) {
+  async asyncData() {
     const [response]: any = await Promise.all([
       client.getEntries({
-        content_type: 'work',
-        'fields.tag.sys.id': params.id,
-        order: '-sys.createdAt'
+        content_type: 'tag',
+        order: '-sys.id'
       })
     ]).catch((error) => {
       console.log(error)
     })
+
     return {
-      works: response.items
+      tags: response.items
     }
   }
 })
 </script>
-
-<style scoped></style>

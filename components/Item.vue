@@ -25,7 +25,7 @@
         </v-chip-group>
         <v-spacer></v-spacer>
         <v-divider></v-divider>
-        <v-chip label outlined text-color="white">
+        <v-chip to="/tag" label outlined text-color="white">
           <v-icon left>mdi-label</v-icon>
           Tags
         </v-chip>
