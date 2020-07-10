@@ -34,7 +34,11 @@ export default Vue.extend({
   },
   watch: {
     searchWords() {
-      const word = this.searchWords.trim()
+      let word
+      if (this.searchWords) {
+        word = this.searchWords.trim()
+      }
+
       if (word) {
         this.color = seachFormColor.activeColor
       } else {
@@ -44,7 +48,11 @@ export default Vue.extend({
   },
   methods: {
     sendSearch() {
-      const word = this.searchWords.trim()
+      let word
+      if (this.searchWords) {
+        word = this.searchWords.trim()
+      }
+
       if (!word) {
         this.searchWords = ''
         return
