@@ -2,8 +2,10 @@
   <div class="tag">
     <h2>Tag</h2>
     <Grid>
-      <v-col cols="4" v-for="tag in tags" :key="tag.sys.id">
-        <v-btn outlined :to="'/tag/' + tag.sys.id">{{ tag.fields.name }}</v-btn>
+      <v-col cols="6" sm="4" v-for="tag in tags" :key="tag.sys.id">
+        <v-btn outlined :to="'/tag/' + tag.sys.id" width="100%">{{
+          tag.fields.name
+        }}</v-btn>
       </v-col>
     </Grid>
   </div>

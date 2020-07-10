@@ -2,8 +2,13 @@
   <div class="category">
     <h2>Category</h2>
     <Grid>
-      <v-col cols="4" v-for="category in categories" :key="category.sys.id">
-        <v-btn outlined :to="'/category/' + category.sys.id">{{
+      <v-col
+        cols="6"
+        sm="4"
+        v-for="category in categories"
+        :key="category.sys.id"
+      >
+        <v-btn outlined :to="'/category/' + category.sys.id" width="100%">{{
           category.fields.name
         }}</v-btn>
       </v-col>
