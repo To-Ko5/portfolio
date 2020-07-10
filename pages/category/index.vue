@@ -22,11 +22,11 @@ export default Vue.extend({
   components: {
     Grid
   },
-  async asyncData({ params }) {
+  async asyncData() {
     const [response]: any = await Promise.all([
       client.getEntries({
         content_type: 'category',
-        order: 'sys.id'
+        order: '-sys.id'
       })
     ]).catch((error) => {
       console.log(error)
