@@ -1,14 +1,8 @@
 <template>
   <div class="tag__id">
+    <h2>Tag:{{ $route.query.tag }}</h2>
     <Grid>
-      <v-col
-        cols="12"
-        sm="6"
-        md="4"
-        lg="4"
-        v-for="work in works"
-        :key="work.sys.id"
-      >
+      <v-col cols="12" sm="6" lg="4" v-for="work in works" :key="work.sys.id">
         <Item :work="work" />
       </v-col>
     </Grid>

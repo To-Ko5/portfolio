@@ -7,7 +7,7 @@
 
       <v-spacer></v-spacer>
 
-      <SearchForm />
+      <SearchForm class="d-none d-sm-flex" />
 
       <v-menu left bottom>
         <template v-slot:activator="{ on, attrs }">

@@ -2,7 +2,7 @@
   <div class="side-bar">
     <v-navigation-drawer v-model="drawerState" fixed temporary>
       <v-list nav dense>
-        <div class="side-bar__search">
+        <div class="side-bar__search d-sm-none">
           <SearchForm />
         </div>
         <v-list-item-group active-class="deep-purple--text text--accent-4">
