@@ -82,7 +82,11 @@
         </v-menu>
 
         <v-spacer></v-spacer>
-        <v-btn :to="/work/ + work.fields.slug" outlined width="120px"
+        <v-btn
+          :to="/work/ + work.fields.slug"
+          outlined
+          color="blue"
+          width="120px"
           >read more</v-btn
         >
       </v-card-actions>
