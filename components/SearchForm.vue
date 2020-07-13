@@ -5,14 +5,13 @@
       outlined
       clearable
       dense
-      color="white"
       label="Search"
       type="text"
       class="search-form__text"
     >
     </v-text-field>
-    <v-btn icon :color="color" @click="sendSearch">
-      <v-icon>mdi-magnify</v-icon>
+    <v-btn icon @click="sendSearch">
+      <v-icon :color="color">mdi-magnify</v-icon>
     </v-btn>
   </div>
 </template>
@@ -21,8 +20,8 @@
 import Vue from 'vue'
 
 const seachFormColor = {
-  defaultColor: 'white',
-  activeColor: 'orange'
+  defaultColor: '',
+  activeColor: 'primary'
 }
 
 export default Vue.extend({

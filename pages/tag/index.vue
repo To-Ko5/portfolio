@@ -1,6 +1,6 @@
 <template>
   <div class="tag">
-    <h2>Tag</h2>
+    <h2 class="tag__title">Tag</h2>
     <Grid>
       <v-col cols="6" sm="4" v-for="tag in tags" :key="tag.sys.id">
         <v-btn
@@ -41,3 +41,12 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.tag {
+  &__title {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+}
+</style>

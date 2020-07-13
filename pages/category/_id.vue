@@ -1,6 +1,12 @@
 <template>
-  <div class="category__id">
-    <h2>Category:{{ $route.query.category }}</h2>
+  <div class="category-id">
+    <div class="category-id__result">
+      <v-btn to="/category" color="blue" small outlined>
+        <v-icon left small>mdi-label</v-icon>
+        Category
+      </v-btn>
+      <h2 class="category-id__title">{{ $route.query.category }}</h2>
+    </div>
     <Grid>
       <v-col cols="12" sm="6" lg="4" v-for="work in works" :key="work.sys.id">
         <Item :work="work" />
@@ -40,4 +46,16 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.category-id {
+  &__result {
+    max-width: 500px;
+    margin: 0 auto 24px;
+    text-align: center;
+    padding: 0 12px;
+  }
+  &__title {
+    margin-top: 8px;
+  }
+}
+</style>

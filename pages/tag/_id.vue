@@ -1,6 +1,12 @@
 <template>
-  <div class="tag__id">
-    <h2>Tag:{{ $route.query.tag }}</h2>
+  <div class="tag-id">
+    <div class="tag-id__result">
+      <v-btn to="/tag" color="blue" small outlined>
+        <v-icon left small>mdi-label</v-icon>
+        Tag
+      </v-btn>
+      <h2 class="tag-id__title">{{ $route.query.tag }}</h2>
+    </div>
     <Grid>
       <v-col cols="12" sm="6" lg="4" v-for="work in works" :key="work.sys.id">
         <Item :work="work" />
@@ -40,4 +46,16 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.tag-id {
+  &__result {
+    max-width: 500px;
+    margin: 0 auto 24px;
+    text-align: center;
+    padding: 0 12px;
+  }
+  &__title {
+    margin-top: 8px;
+  }
+}
+</style>

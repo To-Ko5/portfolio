@@ -1,11 +1,13 @@
 <template>
   <div class="search">
     <div v-if="$route.params.keywords" class="search__result">
-      <p>検索キーワード:{{ $route.params.keywords }}</p>
-      <p>検索結果:{{ works.length }}</p>
-    </div>
-    <div v-if="works.length <= 0" class="not-keywords">
-      <v-btn outlined to="/">一覧へ戻る</v-btn>
+      <div class="search__words">
+        <p>検索キーワード:{{ $route.params.keywords }}</p>
+        <p>検索結果:{{ works.length }}</p>
+      </div>
+      <div v-if="works.length <= 0" class="not-keywords">
+        <v-btn outlined width="100%" to="/">一覧へ戻る</v-btn>
+      </div>
     </div>
     <Grid>
       <v-col
@@ -56,4 +58,15 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.search {
+  &__result {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 12px;
+  }
+  &__words {
+    margin-bottom: 24px;
+  }
+}
+</style>
