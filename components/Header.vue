@@ -1,43 +1,43 @@
 <template>
   <div class="header">
-    <v-app-bar fixed dark>
+    <v-app-bar fixed>
       <v-app-bar-nav-icon @click="drawerOpen"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Portfolio</v-toolbar-title>
+      <v-toolbar-title
+        ><h1 class="header__title">Portfolio</h1></v-toolbar-title
+      >
 
       <v-spacer></v-spacer>
 
-      <SearchForm class="d-none d-sm-flex" />
+      <SearchForm class="header__search d-none d-sm-flex" />
 
-      <v-menu left bottom>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn icon v-bind="attrs" v-on="on">
-            <v-icon>mdi-dots-vertical</v-icon>
-          </v-btn>
-        </template>
+      <SwitchTheme class="d-none d-sm-flex" />
 
-        <v-list>
-          <v-list-item v-for="n in 5" :key="n" @click="() => {}">
-            <v-list-item-title>Option {{ n }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+      <SwitchThemeSmall class="d-sm-none" />
+
+      <HeaderMenu />
     </v-app-bar>
 
-    <SideBar :drawer="drawer" />
+    <Sidebar :drawer="drawer" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import SearchForm from '~/components/SearchForm.vue'
-import SideBar from '~/components/SideBar.vue'
+import Sidebar from '~/components/Sidebar.vue'
+import SwitchTheme from '~/components/SwitchTheme.vue'
+import SwitchThemeSmall from '~/components/SwitchThemeSmall.vue'
+import HeaderMenu from '~/components/HeaderMenu.vue'
 
 export default Vue.extend({
   name: 'Header',
   components: {
     SearchForm,
-    SideBar
+    Sidebar,
+    SwitchTheme,
+    SwitchThemeSmall,
+    HeaderMenu
   },
   data() {
     return {
@@ -52,3 +52,14 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.header {
+  &__title {
+    font-size: 2rem;
+  }
+  &__search {
+    margin: 0 24px;
+  }
+}
+</style>
