@@ -11,7 +11,7 @@
         <v-list-item to="/category">
           <v-list-item-title>Category</v-list-item-title>
         </v-list-item>
-        <v-list-item to="tag">
+        <v-list-item to="/tag">
           <v-list-item-title>Tag</v-list-item-title>
         </v-list-item>
       </v-list>
