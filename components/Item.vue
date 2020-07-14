@@ -86,7 +86,7 @@
           :to="/work/ + work.fields.slug"
           outlined
           color="blue"
-          width="120px"
+          width="100px"
           >read more</v-btn
         >
       </v-card-actions>
