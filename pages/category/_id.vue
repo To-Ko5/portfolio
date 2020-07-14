@@ -29,7 +29,7 @@ export default Vue.extend({
     Item,
     Grid
   },
-  async asyncData({ params }) {
+  async asyncData({ params, redirect }) {
     const [response]: any = await Promise.all([
       client.getEntries({
         content_type: 'work',
@@ -39,6 +39,11 @@ export default Vue.extend({
     ]).catch((error) => {
       console.log(error)
     })
+
+    if (response.items == '') {
+      redirect('/category')
+    }
+
     return {
       works: response.items
     }
