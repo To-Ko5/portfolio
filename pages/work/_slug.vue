@@ -41,7 +41,7 @@
         Tag
       </v-btn>
 
-      <v-btn-toggle>
+      <v-btn-toggle class="tag-button">
         <v-btn
           v-for="tag in work.fields.tag"
           :key="tag.sys.id"
@@ -107,8 +107,7 @@ export default Vue.extend({
   }
   &__tag {
     margin-bottom: 24px;
-    white-space: pre;
-    overflow-x: scroll;
+    display: flex;
   }
   &__content {
     margin-bottom: 32px;
@@ -129,5 +128,10 @@ export default Vue.extend({
 
 .item-label {
   margin-right: 8px;
+}
+
+.tag-button {
+  white-space: pre;
+  overflow-x: scroll;
 }
 </style>
