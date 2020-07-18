@@ -24,11 +24,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import SearchForm from '~/components/SearchForm.vue'
+import SearchForm from '~/components/header/SearchForm.vue'
 import Sidebar from '~/components/Sidebar.vue'
-import SwitchTheme from '~/components/SwitchTheme.vue'
-import SwitchThemeSmall from '~/components/SwitchThemeSmall.vue'
-import HeaderMenu from '~/components/HeaderMenu.vue'
+import SwitchTheme from '~/components/header/SwitchTheme.vue'
+import SwitchThemeSmall from '~/components/header/SwitchThemeSmall.vue'
+import HeaderMenu from '~/components/header/HeaderMenu.vue'
 
 export default Vue.extend({
   name: 'Header',
