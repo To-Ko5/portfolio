@@ -13,11 +13,11 @@
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item>
 
-          <v-list-item>
+          <v-list-item to="/about">
             <v-list-item-icon>
               <v-icon>mdi-account</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Account</v-list-item-title>
+            <v-list-item-title>About</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import SearchForm from '~/components/SearchForm.vue'
+import SearchForm from '~/components/header/SearchForm.vue'
 
 export default Vue.extend({
   name: 'Sidebar',
