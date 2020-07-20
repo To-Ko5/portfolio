@@ -2,23 +2,23 @@
   <div class="profile">
     <v-card class="mx-auto" max-width="344">
       <v-img
-        src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+        :src="profile.fields.profileImg.fields.file.url"
         height="200px"
       ></v-img>
 
       <v-card-title>
-        TK
+        {{ profile.fields.name }}
       </v-card-title>
 
       <v-card-subtitle>
-        Web Engineers
+        {{ profile.fields.job }}
       </v-card-subtitle>
 
       <v-card-actions>
         <v-btn text><v-icon>mdi-github</v-icon></v-btn>
 
         <v-btn color="purple" text>
-          <v-icon>mdi-instagram</v-icon>
+          <v-icon>mdi-twitter</v-icon>
         </v-btn>
 
         <v-spacer></v-spacer>
@@ -33,13 +33,7 @@
           <v-divider></v-divider>
 
           <v-card-text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            {{ profile.fields.description }}
           </v-card-text>
         </div>
       </v-expand-transition>
@@ -48,9 +42,15 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { PropType } from 'vue'
 
 export default Vue.extend({
+  props: {
+    profile: {
+      type: Object as PropType<{}>,
+      required: true
+    }
+  },
   data() {
     return {
       show: false

@@ -100,7 +100,8 @@ import Vue, { PropType } from 'vue'
 export default Vue.extend({
   props: {
     work: {
-      type: Object as PropType<{}>
+      type: Object as PropType<{}>,
+      required: true
     }
   }
 })
