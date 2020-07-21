@@ -112,7 +112,6 @@ export default Vue.extend({
   &__card {
     margin: 0 auto;
     width: 100%;
-    max-width: 333px;
   }
   &__label {
     margin-right: 8px;

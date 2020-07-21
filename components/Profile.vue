@@ -1,13 +1,13 @@
 <template>
   <div class="profile">
-    <v-card class="mx-auto" max-width="344">
+    <v-card class="mx-auto" max-width="600px">
       <v-img
         :src="profile.fields.profileImg.fields.file.url"
-        height="200px"
+        max-height="400px"
       ></v-img>
 
-      <v-card-title>
-        {{ profile.fields.name }}
+      <v-card-title class="name">
+        <h1 class="name__title">{{ profile.fields.name }}</h1>
       </v-card-title>
 
       <v-card-subtitle>
@@ -15,28 +15,42 @@
       </v-card-subtitle>
 
       <v-card-actions>
-        <v-btn text><v-icon>mdi-github</v-icon></v-btn>
+        <v-btn icon><v-icon>mdi-github</v-icon></v-btn>
 
-        <v-btn color="purple" text>
+        <v-btn color="purple" icon>
           <v-icon>mdi-twitter</v-icon>
-        </v-btn>
-
-        <v-spacer></v-spacer>
-
-        <v-btn icon @click="show = !show">
-          <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
         </v-btn>
       </v-card-actions>
 
-      <v-expand-transition>
-        <div v-show="show">
-          <v-divider></v-divider>
+      <v-divider></v-divider>
 
-          <v-card-text>
-            {{ profile.fields.description }}
-          </v-card-text>
+      <v-card-text class="text">
+        <div class="skill">
+          <v-chip label outlined>Skills</v-chip>
+          <div class="text__wrapper">
+            <p>{{ profile.fields.skills }}</p>
+          </div>
         </div>
-      </v-expand-transition>
+        <div class="profile">
+          <v-chip label outlined>Profile</v-chip>
+          <div class="text__wrapper">
+            <p>{{ profile.fields.description }}</p>
+          </div>
+        </div>
+        <div class="certifications">
+          <v-chip label outlined>certifications</v-chip>
+          <div class="text__wrapper">
+            <ul class="certifications__lists">
+              <li
+                v-for="(certification, index) in profile.fields.certifications"
+                :key="index"
+              >
+                {{ certification }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </v-card-text>
     </v-card>
   </div>
 </template>
@@ -59,4 +73,21 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.name {
+  margin-bottom: 8px;
+}
+
+.text {
+  &__wrapper {
+    margin: 8px 0 0 12px;
+  }
+}
+
+.certifications {
+  &__lists {
+    margin: 0;
+    list-style: square;
+  }
+}
+</style>
