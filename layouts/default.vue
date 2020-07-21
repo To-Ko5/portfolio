@@ -4,6 +4,7 @@
     <div class="main">
       <nuxt />
     </div>
+    <ReturnTopButton />
     <Footer />
   </v-app>
 </template>
@@ -11,10 +12,13 @@
 <script>
 import Header from '~/components/header/Header.vue'
 import Footer from '~/components/Footer.vue'
+import ReturnTopButton from '~/components/ReturnTopButton.vue'
+
 export default {
   components: {
     Header,
-    Footer
+    Footer,
+    ReturnTopButton
   }
 }
 </script>
