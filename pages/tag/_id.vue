@@ -18,7 +18,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import Item from '~/components/Item.vue'
-import Grid from '~/components/Grid.vue'
+import Grid from '~/components/common/Grid.vue'
 
 import { createClient } from '~/plugins/contentful.js'
 

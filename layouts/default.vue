@@ -12,7 +12,7 @@
 <script>
 import Header from '~/components/header/Header.vue'
 import Footer from '~/components/Footer.vue'
-import ReturnTopButton from '~/components/ReturnTopButton.vue'
+import ReturnTopButton from '~/components/common/ReturnTopButton.vue'
 
 export default {
   components: {
