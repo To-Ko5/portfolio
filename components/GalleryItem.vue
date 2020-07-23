@@ -1,11 +1,57 @@
 <template>
-  <div class="gallery-item"></div>
+  <div class="gallery-item">
+    <v-img
+      :src="gallery.fields.image.fields.file.url"
+      @click.stop="openDialog"
+    ></v-img>
+    <v-dialog
+      v-model="dialog"
+      max-width="800"
+      overlay-color="black"
+      overlay-opacity="0.9"
+    >
+      <div class="dialog">
+        <v-img
+          :src="gallery.fields.image.fields.file.url"
+          class="dialog__image"
+        ></v-img>
+        <p class="dialog__title">{{ gallery.fields.title }}</p>
+        <p class="dialog__description">{{ gallery.fields.description }}</p>
+      </div>
+    </v-dialog>
+  </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue, { PropType } from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  props: {
+    gallery: {
+      type: Object as PropType<{}>,
+      required: true
+    }
+  },
+  data() {
+    return {
+      dialog: false
+    }
+  },
+  methods: {
+    openDialog() {
+      this.dialog = true
+    }
+  }
+})
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.dialog {
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  &__image {
+    margin-bottom: 18px;
+  }
+}
+</style>
