@@ -19,6 +19,13 @@
             </v-list-item-icon>
             <v-list-item-title>About</v-list-item-title>
           </v-list-item>
+
+          <v-list-item to="/gallery">
+            <v-list-item-icon>
+              <v-icon>mdi-image-multiple</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Gallery</v-list-item-title>
+          </v-list-item>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>

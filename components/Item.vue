@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <v-card class="item__card justify-space-between" raised>
+    <v-card class="item__card justify-space-between" max-width="400px" raised>
       <v-img
         class="white--text align-end"
         height="200px"
@@ -13,14 +13,14 @@
       </v-card-subtitle>
       <v-card-actions>
         <v-btn
-          small
+          x-small
           to="/category"
           outlined
           color="grey lighten-1"
           exact
           class="item__label"
         >
-          <v-icon small>mdi-label</v-icon>
+          <v-icon x-small>mdi-label</v-icon>
           Category
         </v-btn>
         <v-btn
@@ -35,14 +35,14 @@
 
       <v-card-actions>
         <v-btn
-          small
+          x-small
           to="/tag"
           outlined
           color="grey lighten-1"
           exact
           class="item__label"
         >
-          <v-icon small>mdi-label</v-icon>
+          <v-icon x-small>mdi-label</v-icon>
           Tag
         </v-btn>
 
