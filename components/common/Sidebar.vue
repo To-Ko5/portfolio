@@ -26,6 +26,13 @@
             </v-list-item-icon>
             <v-list-item-title>Gallery</v-list-item-title>
           </v-list-item>
+
+          <v-list-item to="/contact">
+            <v-list-item-icon>
+              <v-icon>mdi-email</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Contact</v-list-item-title>
+          </v-list-item>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
