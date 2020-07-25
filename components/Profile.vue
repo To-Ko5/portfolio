@@ -15,10 +15,20 @@
       </v-card-subtitle>
 
       <v-card-actions>
-        <v-btn icon><v-icon>mdi-github</v-icon></v-btn>
+        <v-btn color="grey" icon @click="toLink(profile.fields.github)"
+          ><v-icon>mdi-github</v-icon></v-btn
+        >
 
-        <v-btn color="purple" icon>
+        <v-btn color="green" icon @click="toLink(profile.fields.qiita)">
+          <v-icon>mdi-post</v-icon>
+        </v-btn>
+
+        <v-btn color="blue" icon @click="toLink(profile.fields.twitter)">
           <v-icon>mdi-twitter</v-icon>
+        </v-btn>
+
+        <v-btn color="purple" icon @click="toLink(profile.fields.instagram)">
+          <v-icon>mdi-instagram</v-icon>
         </v-btn>
       </v-card-actions>
 
@@ -68,6 +78,11 @@ export default Vue.extend({
   data() {
     return {
       show: false
+    }
+  },
+  methods: {
+    toLink(url: string) {
+      window.open(url, '_blank')
     }
   }
 })
