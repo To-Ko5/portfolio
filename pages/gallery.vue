@@ -1,27 +1,55 @@
 <template>
   <div class="gallery">
-    <div v-for="(tag, index) in tags" :key="index">
-      {{ tag.fields.name }}
-    </div>
-    <Grid>
-      <v-col
-        cols="12"
-        sm="6"
-        md="4"
-        lg="4"
-        v-for="gallery in galleries"
-        :key="gallery.sys.id"
+    <v-tabs show-arrows centered>
+      <v-tab @click="tabChange('all')">all</v-tab>
+      <v-tab
+        v-for="(tag, index) in tags"
+        :key="index"
+        @click="tabChange(tag.fields.name)"
       >
-        <v-lazy
-          v-model="isActive"
-          :options="{
-            threshold: 0.5
-          }"
-          transition="fade-transition"
+        {{ tag.fields.name }}
+      </v-tab>
+    </v-tabs>
+    <Grid>
+      <template v-for="gallery in galleries">
+        <v-col
+          v-if="tagName === gallery.fields.tag.fields.name"
+          cols="12"
+          sm="6"
+          md="4"
+          lg="4"
+          :key="gallery.sys.id"
         >
-          <GalleryItem :gallery="gallery" />
-        </v-lazy>
-      </v-col>
+          <v-lazy
+            v-model="isActive"
+            :options="{
+              threshold: 0.5
+            }"
+            transition="fade-transition"
+          >
+            <GalleryItem :gallery="gallery" />
+          </v-lazy>
+        </v-col>
+
+        <v-col
+          v-else-if="tagName === 'all'"
+          cols="12"
+          sm="6"
+          md="4"
+          lg="4"
+          :key="gallery.sys.id"
+        >
+          <v-lazy
+            v-model="isActive"
+            :options="{
+              threshold: 0.5
+            }"
+            transition="fade-transition"
+          >
+            <GalleryItem :gallery="gallery" />
+          </v-lazy>
+        </v-col>
+      </template>
     </Grid>
   </div>
 </template>
@@ -47,7 +75,7 @@ export default Vue.extend({
       }),
       client.getEntries({
         content_type: 'tag',
-        order: '-sys.id'
+        order: 'sys.id'
       })
     ]).catch((error) => {
       console.log(error)
@@ -60,10 +88,14 @@ export default Vue.extend({
   },
   data() {
     return {
-      isActive: false
+      isActive: false,
+      tagName: 'all'
+    }
+  },
+  methods: {
+    tabChange(tagName: string) {
+      this.tagName = tagName
     }
   }
 })
 </script>
-
-<style lang="scss" scoped></style>

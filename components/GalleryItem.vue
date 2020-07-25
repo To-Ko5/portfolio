@@ -3,6 +3,7 @@
     <v-img
       :src="gallery.fields.image.fields.file.url"
       @click.stop="openDialog"
+      class="gallery-image"
     ></v-img>
     <v-dialog
       v-model="dialog"
@@ -46,6 +47,14 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+.gallery-image {
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+    transition: 0.3s;
+  }
+}
+
 .dialog {
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.1);
