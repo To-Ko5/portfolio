@@ -74,7 +74,7 @@ export default Vue.extend({
         order: '-sys.createdAt'
       }),
       client.getEntries({
-        content_type: 'tag',
+        content_type: 'galleryTag',
         order: 'sys.id'
       })
     ]).catch((error) => {

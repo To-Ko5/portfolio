@@ -2,19 +2,13 @@
   <div class="header">
     <v-app-bar fixed>
       <v-app-bar-nav-icon @click="drawerOpen"></v-app-bar-nav-icon>
-
       <v-toolbar-title
-        ><h1 class="header__title">Portfolio</h1></v-toolbar-title
+        ><h1 class="header__title">C-Portfolio</h1></v-toolbar-title
       >
-
       <v-spacer></v-spacer>
-
       <SearchForm class="header__search d-none d-sm-flex" />
-
       <SwitchTheme class="d-none d-sm-flex" />
-
       <SwitchThemeSmall class="d-sm-none" />
-
       <HeaderMenu />
     </v-app-bar>
 
