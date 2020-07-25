@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="container">
     <v-row>
       <slot />
     </v-row>
@@ -10,3 +10,9 @@
 import Vue from 'vue'
 export default Vue.extend({})
 </script>
+
+<style lang="scss" scoped>
+.container {
+  max-width: 1200px;
+}
+</style>
