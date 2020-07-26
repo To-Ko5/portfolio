@@ -26,7 +26,6 @@
         type="checkbox"
         required
       ></v-checkbox>
-
       <v-btn type="submit">submit</v-btn>
       <v-btn @click="clear">clear</v-btn>
     </form>
