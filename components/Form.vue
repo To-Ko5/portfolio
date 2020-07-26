@@ -1,6 +1,7 @@
 <template>
   <div class="form">
-    <form>
+    <form name="contact" method="POST" netlify>
+      <input type="hidden" name="form-name" value="contact" />
       <v-text-field
         v-model="name"
         :counter="10"
@@ -26,7 +27,7 @@
         required
       ></v-checkbox>
 
-      <v-btn class="mr-4" @click="submit">submit</v-btn>
+      <v-btn type="submit">submit</v-btn>
       <v-btn @click="clear">clear</v-btn>
     </form>
   </div>
