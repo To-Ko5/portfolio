@@ -1,34 +1,36 @@
 <template>
   <div class="form">
-    <form name="contact" method="POST" netlify>
-      <input type="hidden" name="form-name" value="contact" />
-      <v-text-field
-        v-model="name"
-        :counter="10"
-        :error-messages="errors"
-        label="Name"
-        required
-      ></v-text-field>
+    <client-only>
+      <form name="contact" method="POST" netlify>
+        <input type="hidden" name="form-name" value="contact" />
+        <v-text-field
+          v-model="name"
+          :counter="10"
+          :error-messages="errors"
+          label="Name"
+          required
+        ></v-text-field>
 
-      <v-text-field
-        v-model="email"
-        :error-messages="errors"
-        label="E-mail"
-        required
-      ></v-text-field>
+        <v-text-field
+          v-model="email"
+          :error-messages="errors"
+          label="E-mail"
+          required
+        ></v-text-field>
 
-      <v-textarea label="Text"></v-textarea>
-      <v-checkbox
-        v-model="checkbox"
-        :error-messages="errors"
-        value="1"
-        label="Option"
-        type="checkbox"
-        required
-      ></v-checkbox>
-      <v-btn type="submit">submit</v-btn>
-      <v-btn @click="clear">clear</v-btn>
-    </form>
+        <v-textarea label="Text"></v-textarea>
+        <v-checkbox
+          v-model="checkbox"
+          :error-messages="errors"
+          value="1"
+          label="Option"
+          type="checkbox"
+          required
+        ></v-checkbox>
+        <v-btn type="submit">submit</v-btn>
+        <v-btn @click="clear">clear</v-btn>
+      </form>
+    </client-only>
   </div>
 </template>
 
