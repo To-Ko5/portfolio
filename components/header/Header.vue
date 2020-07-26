@@ -3,7 +3,9 @@
     <v-app-bar fixed>
       <v-app-bar-nav-icon @click="drawerOpen"></v-app-bar-nav-icon>
       <v-toolbar-title
-        ><h1 class="header__title">C-Portfolio</h1></v-toolbar-title
+        ><h1 class="header__title">
+          <nuxt-link to="/" class="header__link">C-Portfolio</nuxt-link>
+        </h1></v-toolbar-title
       >
       <v-spacer></v-spacer>
       <SearchForm class="header__search d-none d-sm-flex" />
@@ -50,7 +52,11 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .header {
   &__title {
-    font-size: 2rem;
+    font-size: 28px;
+  }
+  &__link {
+    text-decoration: none;
+    color: inherit;
   }
   &__search {
     margin: 0 24px;

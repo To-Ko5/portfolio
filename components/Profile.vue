@@ -89,8 +89,15 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+.profile {
+  padding: 0 8px;
+}
+
 .name {
   margin-bottom: 8px;
+  &__title {
+    font-size: 28px;
+  }
 }
 
 .text {

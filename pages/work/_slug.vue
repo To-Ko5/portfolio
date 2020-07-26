@@ -131,7 +131,8 @@ export default Vue.extend({
 }
 
 .tag-button {
-  white-space: pre;
-  overflow-x: scroll;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
 }
 </style>
