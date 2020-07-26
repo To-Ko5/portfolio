@@ -12,8 +12,6 @@
         <Item :work="work" />
       </v-col>
     </Grid>
-
-    <p style="height: 3000px;">ddd</p>
   </div>
 </template>
 
