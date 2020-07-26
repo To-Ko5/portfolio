@@ -1,11 +1,7 @@
 <template>
   <div class="item">
     <v-card class="item__card justify-space-between" max-width="334" raised>
-      <v-img
-        class="white--text align-end"
-        height="200px"
-        :src="work.fields.image.fields.file.url"
-      >
+      <v-img height="200px" :src="work.fields.image.fields.file.url" contain>
       </v-img>
       <v-card-title>{{ work.fields.title }}</v-card-title>
       <v-card-subtitle>

@@ -41,7 +41,7 @@
             <p>{{ profile.fields.skills }}</p>
           </div>
         </div>
-        <div class="profile">
+        <div class="description">
           <v-chip label outlined>Profile</v-chip>
           <div class="text__wrapper">
             <p>{{ profile.fields.description }}</p>
