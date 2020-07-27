@@ -80,7 +80,6 @@ export default Vue.extend({
     ]).catch((error) => {
       console.log(error)
     })
-    console.log(response.includes.Entry)
     return {
       galleries: response.items,
       tags: response.includes.Entry
