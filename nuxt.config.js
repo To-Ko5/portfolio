@@ -47,7 +47,6 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/markdownit',
-    'nuxt-fontawesome',
     '@nuxtjs/dotenv'
   ],
   /*
@@ -75,10 +74,6 @@ export default {
         }
       }
     }
-  },
-
-  fontawesome: {
-    component: 'fa'
   },
 
   markdownit: {
