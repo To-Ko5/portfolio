@@ -11,6 +11,7 @@
             label="Name"
             required
             type="text"
+            :value="name"
           ></v-text-field>
         </div>
 
@@ -20,11 +21,17 @@
             label="E-mail"
             required
             type="email"
+            :value="email"
           ></v-text-field>
         </div>
 
         <div class="form__wrapper">
-          <v-textarea label="Text" v-model="text" required></v-textarea>
+          <v-textarea
+            label="Text"
+            v-model="text"
+            required
+            :value="text"
+          ></v-textarea>
         </div>
 
         <div class="form__wrapper">
