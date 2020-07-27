@@ -102,6 +102,10 @@ export default Vue.extend({
   max-width: 960px;
   margin: 0 auto;
   padding: 0 16px;
+  &__title {
+    margin-bottom: 8px;
+    font-size: 28px;
+  }
   &__category {
     margin-bottom: 16px;
   }

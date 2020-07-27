@@ -2,11 +2,9 @@
   <div class="header">
     <v-app-bar fixed>
       <v-app-bar-nav-icon @click="drawerOpen"></v-app-bar-nav-icon>
-      <v-toolbar-title
-        ><h1 class="header__title">
-          <nuxt-link to="/" class="header__link">C-Portfolio</nuxt-link>
-        </h1></v-toolbar-title
-      >
+      <v-toolbar-title class="header__title">
+        <nuxt-link to="/" class="header__link">C-Portfolio</nuxt-link>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
       <SearchForm class="header__search d-none d-sm-flex" />
       <SwitchTheme class="d-none d-sm-flex" />
