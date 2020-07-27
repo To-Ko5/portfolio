@@ -11,7 +11,7 @@
             label="Name"
             required
             type="text"
-            :value="name"
+            name="name"
           ></v-text-field>
         </div>
 
@@ -21,7 +21,7 @@
             label="E-mail"
             required
             type="email"
-            :value="email"
+            name="email"
           ></v-text-field>
         </div>
 
@@ -30,7 +30,7 @@
             label="Text"
             v-model="text"
             required
-            :value="text"
+            name="text"
           ></v-textarea>
         </div>
 
@@ -42,6 +42,10 @@
             required
             class="checkbox"
           ></v-checkbox>
+        </div>
+        <div v-show="false">
+          <label for="message">スパム対策</label>
+          <input type="text" name="bot-field" v-model="botField" />
         </div>
         <v-btn class="clear-btn" @click="clearForm">削除</v-btn>
         <v-btn width="100px" color="primary" type="submit">送信</v-btn>
@@ -59,7 +63,8 @@ export default Vue.extend({
       name: '',
       email: '',
       text: '',
-      checkbox: false
+      checkbox: false,
+      botField: ''
     }
   },
   methods: {
