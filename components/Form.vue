@@ -134,10 +134,20 @@ export default Vue.extend({
       this.submitForm()
     },
     async submitForm() {
-      const params = this.setParams()
-      const response: any = await axios.post('/', params).catch((error) => {
-        error.response
-      })
+      // const params = this.setParams()
+      const response: any = await axios
+        .post('/', {
+          params: {
+            'form-name': 'contact',
+            name: this.name,
+            email: this.email,
+            text: this.text,
+            'bot-field': this.botField
+          }
+        })
+        .catch((error) => {
+          error.response
+        })
       if (response.status === 200) {
         this.completeForm = true
       }
