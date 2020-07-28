@@ -143,13 +143,13 @@ export default Vue.extend({
       }
     },
     setParams() {
-      const params = new URLSearchParams()
-      params.append('form-name', 'contact')
-      params.append('name', this.name)
-      params.append('email', this.email)
-      params.append('text', this.text)
+      const params: any = {}
+      params.formName = 'contact'
+      params.name = this.name
+      params.email = this.email
+      params.text = this.text
       if (this.botField) {
-        params.append('bot-field', this.botField)
+        params.botField = this.botField
       }
       return params
     },
