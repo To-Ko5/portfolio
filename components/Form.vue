@@ -4,12 +4,12 @@
       <ValidationObserver
         ref="observer"
         v-slot="{ invalid, validated }"
-        @submit.prevent="validateForm"
         tag="form"
         name="contact"
         method="post"
-        netlify
+        data-netlify="true"
         data-netlify-honeypot="bot-field"
+        @submit.prevent="validateForm"
       >
         <input type="hidden" name="form-name" value="contact" />
 
@@ -127,27 +127,23 @@ export default Vue.extend({
       }
       this.submitForm()
     },
-    async submitForm() {
-      const params = this.setParams()
-      const response: any = await axios.post('/', params).catch((error) => {
-        error.response
-      })
-      if (response.status === 200) {
-        this.completeForm = true
-      }
-    },
-    setParams() {
+    submitForm() {
       const params: any = new URLSearchParams()
       params.append('form-name', 'contact')
-      params.toString()
       params.append('name', this.name)
       params.append('email', this.email)
       params.append('text', this.text)
       if (this.botField) {
         params.append('bot-field', this.botField)
       }
-      console.log(params)
-      return params
+      axios
+        .post('/', params)
+        .then(() => {
+          this.completeForm = true
+        })
+        .catch((error) => {
+          error.response
+        })
     },
     clearForm() {
       const observer: any = this.$refs.observer
