@@ -5,92 +5,86 @@
         ref="observer"
         v-slot="{ invalid, validated }"
         @submit.prevent="validateForm"
+        tag="form"
+        name="contact"
+        method="post"
+        netlify
+        data-netlify-honeypot="bot-field"
       >
-        <form
-          name="contact"
-          method="post"
-          netlify
-          data-netlify-honeypot="bot-field"
-        >
-          <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="form-name" value="contact" />
 
-          <div class="form__wrapper">
-            <ValidationProvider
-              v-slot="{ errors }"
-              name="Name"
-              rules="required|max:10"
-            >
-              <v-text-field
-                v-model="name"
-                maxlength="40"
-                :error-messages="errors"
-                label="Name"
-                type="text"
-                name="name"
-              ></v-text-field>
-            </ValidationProvider>
-          </div>
-
-          <div class="form__wrapper">
-            <ValidationProvider
-              v-slot="{ errors }"
-              name="Email"
-              rules="required|email"
-            >
-              <v-text-field
-                v-model="email"
-                :error-messages="errors"
-                label="E-mail"
-                type="email"
-                name="email"
-              ></v-text-field>
-            </ValidationProvider>
-          </div>
-
-          <div class="form__wrapper">
-            <ValidationProvider
-              v-slot="{ errors }"
-              name="Contact"
-              rules="required"
-            >
-              <v-textarea
-                label="Contact"
-                :error-messages="errors"
-                v-model="text"
-                name="text"
-              ></v-textarea>
-            </ValidationProvider>
-          </div>
-
-          <div class="form__wrapper">
-            <ValidationProvider
-              v-slot="{ errors }"
-              name="check"
-              rules="required"
-            >
-              <v-checkbox
-                v-model="checkbox"
-                :error-messages="errors"
-                label="送信しますか？"
-                type="checkbox"
-                value="1"
-                class="checkbox"
-              ></v-checkbox>
-            </ValidationProvider>
-          </div>
-          <div v-show="false">
-            <label for="message">スパム対策</label>
-            <input type="text" name="bot-field" v-model="botField" />
-          </div>
-          <v-btn outlined class="clear-btn" @click="clearForm">リセット</v-btn>
-          <v-btn
-            width="100px"
-            color="primary"
-            type="submit"
-            :class="{ 'no-active': invalid || !validated }"
-            >送信</v-btn
+        <div class="form__wrapper">
+          <ValidationProvider
+            v-slot="{ errors }"
+            name="Name"
+            rules="required|max:10"
           >
-        </form>
+            <v-text-field
+              v-model="name"
+              maxlength="40"
+              :error-messages="errors"
+              label="Name"
+              type="text"
+              name="name"
+            ></v-text-field>
+          </ValidationProvider>
+        </div>
+
+        <div class="form__wrapper">
+          <ValidationProvider
+            v-slot="{ errors }"
+            name="Email"
+            rules="required|email"
+          >
+            <v-text-field
+              v-model="email"
+              :error-messages="errors"
+              label="E-mail"
+              type="email"
+              name="email"
+            ></v-text-field>
+          </ValidationProvider>
+        </div>
+
+        <div class="form__wrapper">
+          <ValidationProvider
+            v-slot="{ errors }"
+            name="Contact"
+            rules="required"
+          >
+            <v-textarea
+              label="Contact"
+              :error-messages="errors"
+              v-model="text"
+              name="text"
+            ></v-textarea>
+          </ValidationProvider>
+        </div>
+
+        <div class="form__wrapper">
+          <ValidationProvider v-slot="{ errors }" name="check" rules="required">
+            <v-checkbox
+              v-model="checkbox"
+              :error-messages="errors"
+              label="送信しますか？"
+              type="checkbox"
+              value="1"
+              class="checkbox"
+            ></v-checkbox>
+          </ValidationProvider>
+        </div>
+        <div v-show="false">
+          <label for="message">スパム対策</label>
+          <input type="text" name="bot-field" v-model="botField" />
+        </div>
+        <v-btn outlined class="clear-btn" @click="clearForm">リセット</v-btn>
+        <v-btn
+          width="100px"
+          color="primary"
+          type="submit"
+          :class="{ 'no-active': invalid || !validated }"
+          >送信</v-btn
+        >
       </ValidationObserver>
     </client-only>
     <v-snackbar
@@ -134,33 +128,25 @@ export default Vue.extend({
       this.submitForm()
     },
     async submitForm() {
-      // const params = this.setParams()
-      const response: any = await axios
-        .post('/', {
-          params: {
-            'form-name': 'contact',
-            name: this.name,
-            email: this.email,
-            text: this.text,
-            'bot-field': this.botField
-          }
-        })
-        .catch((error) => {
-          error.response
-        })
+      const params = this.setParams()
+      const response: any = await axios.post('/', params).catch((error) => {
+        error.response
+      })
       if (response.status === 200) {
         this.completeForm = true
       }
     },
     setParams() {
-      const params: any = {}
-      params.formName = 'contact'
-      params.name = this.name
-      params.email = this.email
-      params.text = this.text
+      const params: any = new URLSearchParams()
+      params.append('form-name', 'contact')
+      params.toString()
+      params.append('name', this.name)
+      params.append('email', this.email)
+      params.append('text', this.text)
       if (this.botField) {
-        params.botField = this.botField
+        params.append('bot-field', this.botField)
       }
+      console.log(params)
       return params
     },
     clearForm() {
