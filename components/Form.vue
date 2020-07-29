@@ -1,92 +1,86 @@
 <template>
   <div class="form">
-    <client-only>
-      <ValidationObserver
-        ref="observer"
-        v-slot="{ invalid, validated }"
-        tag="form"
-        name="contact"
-        method="post"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        @submit.prevent="validateForm"
-      >
-        <input type="hidden" name="form-name" value="contact" />
+    <ValidationObserver
+      ref="observer"
+      v-slot="{ invalid, validated }"
+      tag="form"
+      name="contact"
+      method="post"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      @submit.prevent="validateForm"
+    >
+      <input type="hidden" name="form-name" value="contact" />
 
-        <div class="form__wrapper">
-          <ValidationProvider
-            v-slot="{ errors }"
-            name="Name"
-            rules="required|max:10"
-          >
-            <v-text-field
-              v-model="name"
-              maxlength="40"
-              :error-messages="errors"
-              label="Name"
-              type="text"
-              name="name"
-            ></v-text-field>
-          </ValidationProvider>
-        </div>
-
-        <div class="form__wrapper">
-          <ValidationProvider
-            v-slot="{ errors }"
-            name="Email"
-            rules="required|email"
-          >
-            <v-text-field
-              v-model="email"
-              :error-messages="errors"
-              label="E-mail"
-              type="email"
-              name="email"
-            ></v-text-field>
-          </ValidationProvider>
-        </div>
-
-        <div class="form__wrapper">
-          <ValidationProvider
-            v-slot="{ errors }"
-            name="Contact"
-            rules="required"
-          >
-            <v-textarea
-              label="Contact"
-              :error-messages="errors"
-              v-model="text"
-              name="text"
-            ></v-textarea>
-          </ValidationProvider>
-        </div>
-
-        <div class="form__wrapper">
-          <ValidationProvider v-slot="{ errors }" name="check" rules="required">
-            <v-checkbox
-              v-model="checkbox"
-              :error-messages="errors"
-              label="送信しますか？"
-              type="checkbox"
-              value="1"
-              class="checkbox"
-            ></v-checkbox>
-          </ValidationProvider>
-        </div>
-        <div v-show="false">
-          <label for="message">スパム対策</label>
-          <input type="text" name="bot-field" v-model="botField" />
-        </div>
-        <v-btn outlined class="clear-btn" @click="clearForm">リセット</v-btn>
-        <v-btn
-          width="100px"
-          color="primary"
-          type="submit"
-          :class="{ 'no-active': invalid || !validated }"
-          >送信</v-btn
+      <div class="form__wrapper">
+        <ValidationProvider
+          v-slot="{ errors }"
+          name="Name"
+          rules="required|max:10"
         >
-      </ValidationObserver>
-    </client-only>
+          <v-text-field
+            v-model="name"
+            maxlength="40"
+            :error-messages="errors"
+            label="Name"
+            type="text"
+            name="name"
+          ></v-text-field>
+        </ValidationProvider>
+      </div>
+
+      <div class="form__wrapper">
+        <ValidationProvider
+          v-slot="{ errors }"
+          name="Email"
+          rules="required|email"
+        >
+          <v-text-field
+            v-model="email"
+            :error-messages="errors"
+            label="E-mail"
+            type="email"
+            name="email"
+          ></v-text-field>
+        </ValidationProvider>
+      </div>
+
+      <div class="form__wrapper">
+        <ValidationProvider v-slot="{ errors }" name="Contact" rules="required">
+          <v-textarea
+            label="Contact"
+            :error-messages="errors"
+            v-model="text"
+            name="text"
+          ></v-textarea>
+        </ValidationProvider>
+      </div>
+
+      <div class="form__wrapper">
+        <ValidationProvider v-slot="{ errors }" name="check" rules="required">
+          <v-checkbox
+            v-model="checkbox"
+            :error-messages="errors"
+            label="送信しますか？"
+            type="checkbox"
+            value="1"
+            class="checkbox"
+          ></v-checkbox>
+        </ValidationProvider>
+      </div>
+      <div v-show="false">
+        <label for="message">スパム対策</label>
+        <input type="text" name="bot-field" v-model="botField" />
+      </div>
+      <v-btn outlined class="clear-btn" @click="clearForm">リセット</v-btn>
+      <v-btn
+        width="100px"
+        color="primary"
+        type="submit"
+        :class="{ 'no-active': invalid || !validated }"
+        >送信</v-btn
+      >
+    </ValidationObserver>
     <v-snackbar
       v-model="completeForm"
       timeout="3000"
