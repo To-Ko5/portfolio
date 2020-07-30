@@ -81,15 +81,20 @@
         >送信</v-btn
       >
     </ValidationObserver>
-    <v-snackbar
-      v-model="completeForm"
-      timeout="3000"
-      multi-line
-      color="primary"
-    >
-      送信完了
+
+    <v-snackbar v-model="completeForm" timeout="3000" vertical color="primary">
+      送信を完了しました。
       <template v-slot:action="{ attrs }">
         <v-btn text v-bind="attrs" @click="completeForm = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
+
+    <v-snackbar v-model="errorForm" timeout="5000" vertical color="error">
+      送信でエラーが発生しました。
+      <template v-slot:action="{ attrs }">
+        <v-btn text v-bind="attrs" @click="errorForm = false">
           Close
         </v-btn>
       </template>
@@ -109,7 +114,8 @@ export default Vue.extend({
       text: '',
       checkbox: null,
       botField: '',
-      completeForm: false
+      completeForm: false,
+      errorForm: false
     }
   },
   methods: {
@@ -125,9 +131,14 @@ export default Vue.extend({
       const params = this.setParams()
       const response: any = await axios.post('/', params).catch((error) => {
         error.response
+        this.errorForm = true
       })
+
       if (response.status === 200) {
         this.completeForm = true
+        this.clearForm()
+      } else {
+        this.errorForm = true
       }
     },
     setParams() {
@@ -157,7 +168,7 @@ export default Vue.extend({
 .form {
   max-width: 600px;
   margin: 0 auto;
-  padding: 50px 12px 0;
+  padding: 0 12px;
   &__wrapper {
     margin-bottom: 16px;
   }
@@ -170,5 +181,10 @@ export default Vue.extend({
 .no-active {
   opacity: 0.6;
   transition: 0.3s;
+}
+
+.snack-bar {
+  width: 1000px;
+  bottom: 1000px;
 }
 </style>
