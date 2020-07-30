@@ -1,5 +1,6 @@
 <template>
   <div class="gallery">
+    <h1 class="gallery__title">Gallery</h1>
     <v-tabs show-arrows centered>
       <v-tab @click="tabChange('all')">all</v-tab>
       <v-tab
@@ -98,3 +99,13 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.gallery {
+  &__title {
+    text-align: center;
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+}
+</style>

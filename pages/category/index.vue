@@ -1,6 +1,6 @@
 <template>
   <div class="category">
-    <h2 class="category__title">Category</h2>
+    <h1 class="category__title">Category</h1>
     <Grid>
       <v-col
         cols="6"
@@ -54,6 +54,8 @@ export default Vue.extend({
   &__title {
     text-align: center;
     margin-bottom: 24px;
+    font-size: 28px;
+    font-weight: 500;
   }
 }
 </style>

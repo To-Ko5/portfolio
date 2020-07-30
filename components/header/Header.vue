@@ -51,6 +51,7 @@ export default Vue.extend({
 .header {
   &__title {
     font-size: 28px;
+    font-weight: 500;
   }
   &__link {
     text-decoration: none;

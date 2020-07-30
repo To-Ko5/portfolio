@@ -1,5 +1,6 @@
 <template>
   <div class="about">
+    <h1 class="about__title">About</h1>
     <Profile :profile="profile" />
   </div>
 </template>
@@ -31,4 +32,12 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.about {
+  &__title {
+    text-align: center;
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+}
+</style>

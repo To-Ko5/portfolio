@@ -105,12 +105,13 @@ export default Vue.extend({
   &__title {
     margin-bottom: 8px;
     font-size: 28px;
+    font-weight: 500;
   }
   &__category {
     margin-bottom: 16px;
   }
   &__tag {
-    margin-bottom: 24px;
+    margin-bottom: 32px;
     display: flex;
   }
   &__content {

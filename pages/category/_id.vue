@@ -5,7 +5,7 @@
         <v-icon left small>mdi-label</v-icon>
         Category
       </v-btn>
-      <h2 class="category-id__title">{{ $route.query.category }}</h2>
+      <h1 class="category-id__title">{{ $route.query.category }}</h1>
     </div>
     <Grid>
       <v-col cols="12" sm="6" lg="4" v-for="work in works" :key="work.sys.id">
@@ -61,6 +61,8 @@ export default Vue.extend({
   }
   &__title {
     margin-top: 8px;
+    font-size: 24px;
+    font-weight: 500;
   }
 }
 </style>
