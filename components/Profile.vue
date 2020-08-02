@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="certifications">
-          <v-chip label outlined>certifications</v-chip>
+          <v-chip label outlined>Certifications</v-chip>
           <div class="text__wrapper">
             <ul class="certifications__lists">
               <li
