@@ -93,6 +93,29 @@ export default Vue.extend({
     openLink(url: string) {
       window.open(url, '_blank')
     }
+  },
+  head(): any {
+    let self: any = this
+    return {
+      title: self.work.fields.title,
+      meta: [
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: self.work.fields.subtitle
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: process.env.ORGIN_URL + this.$route.path
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: self.work.fields.image.fields.file.url
+        }
+      ]
+    }
   }
 })
 </script>

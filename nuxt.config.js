@@ -11,8 +11,11 @@ export default {
   },
 
   head: {
-    titleTemplate: '%s - ' + 'C-Portfolio',
-    title: 'C-Portfolio' || '',
+    htmlAttrs: {
+      prefix: 'og: http://ogp.me/ns#'
+    },
+    titleTemplate: '%s | ' + 'C-Portfolio',
+    title: 'C-Portfolio',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -20,7 +23,17 @@ export default {
         hid: 'description',
         name: 'description',
         content: process.env.npm_package_description || ''
-      }
+      },
+      { hid: 'og:site_name', property: 'og:site_name', content: 'C-Portfolio' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:url', property: 'og:url', content: process.env.ORGIN_URL },
+      { hid: 'og:title', property: 'og:title', content: 'C-Portfolio' },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: ''
+      },
+      { name: 'twitter:card', content: 'summary_large_image' }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
