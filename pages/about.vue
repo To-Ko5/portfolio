@@ -28,6 +28,11 @@ export default Vue.extend({
     return {
       profile: response.items[0]
     }
+  },
+  head() {
+    return {
+      title: 'About'
+    }
   }
 })
 </script>

@@ -12,6 +12,11 @@ import Form from '~/components/Form.vue'
 export default Vue.extend({
   components: {
     Form
+  },
+  head() {
+    return {
+      title: 'Contact'
+    }
   }
 })
 </script>

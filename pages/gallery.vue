@@ -96,6 +96,11 @@ export default Vue.extend({
     tabChange(tagName: string) {
       this.tagName = tagName
     }
+  },
+  head() {
+    return {
+      title: 'Gallery'
+    }
   }
 })
 </script>

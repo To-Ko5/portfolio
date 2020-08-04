@@ -38,6 +38,11 @@ export default Vue.extend({
     return {
       tags: response.items
     }
+  },
+  head() {
+    return {
+      title: 'Tag'
+    }
   }
 })
 </script>

@@ -112,7 +112,7 @@ export default Vue.extend({
         {
           hid: 'og:image',
           property: 'og:image',
-          content: self.work.fields.image.fields.file.url
+          content: 'https:' + self.work.fields.image.fields.file.url
         }
       ]
     }

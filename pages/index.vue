@@ -41,6 +41,11 @@ export default Vue.extend({
     return {
       works: response.items
     }
+  },
+  head() {
+    return {
+      title: 'Home'
+    }
   }
 })
 </script>

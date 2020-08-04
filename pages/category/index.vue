@@ -45,6 +45,11 @@ export default Vue.extend({
     return {
       categories: response.items
     }
+  },
+  head() {
+    return {
+      title: 'Category'
+    }
   }
 })
 </script>
