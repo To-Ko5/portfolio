@@ -22,16 +22,21 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: "C's Portfolio"
       },
       { hid: 'og:site_name', property: 'og:site_name', content: 'C-Portfolio' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:url', property: 'og:url', content: process.env.ORGIN_URL },
       { hid: 'og:title', property: 'og:title', content: 'C-Portfolio' },
       {
+        hid: 'og:description',
+        property: 'og:description',
+        content: "C's Portfolio"
+      },
+      {
         hid: 'og:image',
         property: 'og:image',
-        content: 'main_ogp.jpg'
+        content: process.env.ORGIN_URL + '/main_ogp.jpg'
       },
       { name: 'twitter:card', content: 'summary_large_image' }
     ],
@@ -52,7 +57,20 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify'],
+  buildModules: [
+    '@nuxt/typescript-build',
+    '@nuxtjs/vuetify',
+    '@nuxtjs/google-analytics'
+  ],
+  /*
+   ** googleAnalytics module configuration
+   ** See https://github.com/nuxt-community/analytics-module
+   */
+  publicRuntimeConfig: {
+    googleAnalytics: {
+      id: process.env.GOOGLE_ANALYTICS_ID
+    }
+  },
   /*
    ** Nuxt.js modules
    */
@@ -60,16 +78,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/markdownit',
-    '@nuxtjs/dotenv',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/dotenv'
   ],
-  /*
-   ** googleAnalytics module configuration
-   ** See https://github.com/nuxt-community/analytics-module
-   */
-  googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS
-  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
