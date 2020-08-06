@@ -31,7 +31,7 @@ export default {
       {
         hid: 'og:image',
         property: 'og:image',
-        content: ''
+        content: 'main_ogp.jpg'
       },
       { name: 'twitter:card', content: 'summary_large_image' }
     ],
@@ -60,8 +60,16 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/markdownit',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/google-analytics'
   ],
+  /*
+   ** googleAnalytics module configuration
+   ** See https://github.com/nuxt-community/analytics-module
+   */
+  googleAnalytics: {
+    id: process.env.GOOGLE_ANALYTICS
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
