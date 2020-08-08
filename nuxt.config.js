@@ -78,7 +78,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/markdownit',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/pwa'
   ],
   /*
    ** Axios module configuration
@@ -106,12 +107,30 @@ export default {
       }
     }
   },
-
+  /*
+   ** markdownit module configuration
+   ** https://github.com/nuxt-community/modules/tree/master/packages/markdownit
+   */
   markdownit: {
     html: true,
     injected: true,
     linkify: true,
     breaks: false
+  },
+  /*
+   ** @nuxtjs/pwa Configuration
+   ** https://github.com/nuxt-community/pwa-module
+   */
+  manifest: {
+    name: 'C-Portfolio',
+    lang: 'ja',
+    short_name: 'C-Portfolio',
+    title: 'C-Portfolio',
+    'og:title': 'C-Portfolio',
+    description: process.env.npm_package_description,
+    'og:description': process.env.npm_package_description,
+    theme_color: '#212121',
+    background_color: '#212121'
   },
   /*
    ** Build configuration
