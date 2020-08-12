@@ -23,10 +23,7 @@ export default Vue.extend({
   },
   methods: {
     returnTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      })
+      ;(this as any).$vuetify.goTo(0)
     },
     scrollWindow() {
       const top = 100
@@ -44,10 +41,11 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .button-enter-active,
 .button-leave-active {
-  transition: opacity 0.5s;
+  transition: all 0.3s ease-out;
 }
 .button-enter,
 .button-leave-to {
   opacity: 0;
+  transform: scale(0.2);
 }
 </style>
