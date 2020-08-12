@@ -25,8 +25,7 @@ export default Vue.extend({
   },
   watch: {
     theme() {
-      // @ts-ignore
-      this.$vuetify.theme.dark = this.theme
+      ;(this as any).$vuetify.theme.dark = this.theme
     }
   }
 })
