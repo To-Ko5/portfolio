@@ -7,6 +7,7 @@ Nuxt.js・Contentful で制作したポートフォリオサイトです。
 ## 使用技術
 
 - フロントエンド:Nuxt.js
+- UI フレームワーク:Vuetify
 - CMS:Contentful
 - ホスティング:Netlify
 
