@@ -3,7 +3,7 @@
     <v-app-bar fixed>
       <v-app-bar-nav-icon @click="drawerOpen"></v-app-bar-nav-icon>
       <v-toolbar-title class="header__title">
-        <nuxt-link to="/home" class="header__link">C-Portfolio</nuxt-link>
+        <nuxt-link to="/" class="header__link">C-Portfolio</nuxt-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <SearchForm class="header__search d-none d-sm-flex" />
