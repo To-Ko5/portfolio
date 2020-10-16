@@ -1,8 +1,4 @@
 <template>
-<<<<<<< HEAD
-  <div class="top">
-    Home
-=======
   <div class="top-page">
     <Grid>
       <v-col
@@ -16,7 +12,6 @@
         <Item :work="work" />
       </v-col>
     </Grid>
->>>>>>> parent of a5a7654... topページをhomeに移動
   </div>
 </template>
 
