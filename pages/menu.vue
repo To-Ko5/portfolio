@@ -54,7 +54,7 @@ export default Vue.extend({
       if (link === 'home') {
         linkPath = '/'
       } else {
-        linkPath = link
+        linkPath = '/' + link
       }
       this.transitionBlock = true
       setTimeout(() => {
