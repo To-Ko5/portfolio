@@ -6,7 +6,7 @@
           <SearchForm />
         </div>
         <v-list-item-group active-class="text--accent-4">
-          <v-list-item to="/">
+          <v-list-item to="/home">
             <v-list-item-icon>
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
