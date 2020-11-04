@@ -4,6 +4,7 @@
       <v-img
         :src="profile.fields.profileImg.fields.file.url"
         max-height="400px"
+        min-height="200px"
       ></v-img>
 
       <v-card-title class="name">
