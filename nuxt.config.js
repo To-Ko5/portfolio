@@ -116,7 +116,7 @@ export default {
     html: true,
     injected: true,
     linkify: true,
-    breaks: false
+    breaks: true
   },
   /*
    ** @nuxtjs/pwa Configuration
