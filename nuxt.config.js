@@ -54,7 +54,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/vee_validate.js' }],
+  plugins: [
+    { src: '~/plugins/vee_validate.js' },
+    { src: '~/plugins/vuetify.js' }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -108,7 +111,8 @@ export default {
       }
     },
     defaultAssets: {
-      font: false
+      font: false,
+      icons: false
     }
   },
   /*
