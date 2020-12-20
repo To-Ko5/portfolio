@@ -2,6 +2,7 @@
   <div class="gallery-item">
     <v-img
       :src="gallery.fields.image.fields.file.url"
+      lazy-src="https://picsum.photos/id/11/10/6?grayscale&blur=1"
       @click.stop="openDialog"
       class="gallery-image"
     ></v-img>

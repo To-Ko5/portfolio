@@ -4,6 +4,7 @@
       <v-img
         height="200px"
         :src="work.fields.image.fields.file.url"
+        lazy-src="https://picsum.photos/id/11/10/6?grayscale&blur=1"
         aspect-ratio="16/9"
         cover
       >

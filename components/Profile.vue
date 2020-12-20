@@ -3,6 +3,7 @@
     <v-card class="mx-auto" max-width="600px">
       <v-img
         :src="profile.fields.profileImg.fields.file.url"
+        lazy-src="https://picsum.photos/id/11/10/6?grayscale&blur=1"
         max-height="400px"
         min-height="200px"
       ></v-img>
