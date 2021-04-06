@@ -62,7 +62,7 @@
         >Read More</v-btn
       >
     </div>
-    <div>
+    <div class="slug__back">
       <v-btn to="/" color="grey lighten-1" outlined>
         <v-icon dark left> mdi-arrow-left </v-icon>Back
       </v-btn>
@@ -147,7 +147,10 @@ export default Vue.extend({
   }
   &__link {
     max-width: 500px;
-    margin: 0 auto 32px;
+    margin: 0 auto;
+  }
+  &__back {
+    margin-top: 64px;
   }
 }
 
