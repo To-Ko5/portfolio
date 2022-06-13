@@ -1,13 +1,14 @@
+import { NuxtConfig } from '@nuxt/types'
 import colors from 'vuetify/es5/util/colors'
 
-export default {
-  mode: 'universal',
+const nuxtConfig: NuxtConfig = {
+  ssr: true,
   /*
    ** Headers of the page
    */
   env: {
-    CTF_SPACE_ID: process.env.API_SPACE_ID,
-    CTF_CDA_ACCESS_TOKEN: process.env.API_CDA_ACCESS_TOKEN
+    CTF_SPACE_ID: process.env.API_SPACE_ID || '',
+    CTF_CDA_ACCESS_TOKEN: process.env.API_CDA_ACCESS_TOKEN || ''
   },
 
   head: {
@@ -27,7 +28,11 @@ export default {
       },
       { hid: 'og:site_name', property: 'og:site_name', content: 'C-Portfolio' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
-      { hid: 'og:url', property: 'og:url', content: process.env.ORGIN_URL },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: process.env.ORGIN_URL || ''
+      },
       { hid: 'og:title', property: 'og:title', content: 'C-Portfolio' },
       {
         hid: 'og:description',
@@ -150,3 +155,5 @@ export default {
     extend(config, ctx) {}
   }
 }
+
+export default nuxtConfig
