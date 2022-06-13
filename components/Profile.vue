@@ -4,8 +4,8 @@
       <v-img
         :src="profile.fields.profileImg.fields.file.url"
         lazy-src="https://picsum.photos/id/11/10/6?grayscale&blur=1"
-        max-height="400px"
-        min-height="200px"
+        max-height="400"
+        min-height="200"
       ></v-img>
 
       <v-card-title class="name">
