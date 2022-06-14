@@ -24,6 +24,7 @@
   "devDependencies": {
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^0.6.0",
+    "@nuxtjs/google-fonts": "^2.0.0",
     "@nuxtjs/vuetify": "^1.0.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
