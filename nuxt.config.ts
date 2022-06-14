@@ -69,8 +69,19 @@ const nuxtConfig: NuxtConfig = {
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxtjs/vuetify',
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/google-analytics',
+    '@nuxtjs/google-fonts'
   ],
+  /*
+   ** @nuxtjs/google-fonts configuration
+   */
+  googleFonts: {
+    families: {
+      Roboto: [100, 300, 400, 500, 700, 900],
+      download: true,
+      inject: true
+    }
+  },
   /*
    ** googleAnalytics module configuration
    ** See https://github.com/nuxt-community/analytics-module
@@ -116,6 +127,7 @@ const nuxtConfig: NuxtConfig = {
       }
     },
     defaultAssets: {
+      font: false,
       icons: false
     }
   },
