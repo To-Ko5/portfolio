@@ -1,14 +1,13 @@
 <template>
   <div class="item">
     <v-card class="item__card justify-space-between" max-width="334" raised>
-      <v-img
-        height="200px"
+      <nuxt-img
         :src="work.fields.image.fields.file.url"
-        lazy-src="https://picsum.photos/id/11/10/6?grayscale&blur=1"
-        aspect-ratio="16/9"
-        cover
-      >
-      </v-img>
+        width="400"
+        height="200"
+        loading="lazy"
+        :alt="work.fields.title"
+      />
       <v-card-title>{{ work.fields.title }}</v-card-title>
       <v-card-subtitle>
         {{ work.fields.subtitle }}
@@ -114,6 +113,9 @@ export default Vue.extend({
   &__card {
     margin: 0 auto;
     width: 100%;
+    & > img {
+      max-width: 100%;
+    }
   }
   &__label {
     margin-right: 8px;

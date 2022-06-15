@@ -99,8 +99,18 @@ const nuxtConfig: NuxtConfig = {
     '@nuxtjs/axios',
     '@nuxtjs/markdownit',
     '@nuxtjs/dotenv',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxt/image'
   ],
+  /*
+   ** @nuxt/image configuration
+   */
+  image: {
+    provider: 'contentful',
+    contentful: {
+      baseURL: 'https://images.ctfassets.net'
+    }
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
