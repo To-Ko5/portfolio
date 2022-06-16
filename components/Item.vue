@@ -1,11 +1,6 @@
 <template>
   <div class="item">
-    <v-card
-      class="item__card justify-space-between"
-      max-width="334"
-      min-height="388"
-      raised
-    >
+    <v-card class="item__card justify-space-between" max-width="334" raised>
       <nuxt-img
         v-if="index < 3"
         :src="work.fields.image.fields.file.url"
