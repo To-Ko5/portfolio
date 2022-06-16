@@ -2,6 +2,17 @@
   <div class="item">
     <v-card class="item__card justify-space-between" max-width="334" raised>
       <nuxt-img
+        v-if="index < 3"
+        :src="work.fields.image.fields.file.url"
+        width="334"
+        height="200"
+        preload
+        quality="80"
+        :alt="work.fields.title"
+      />
+
+      <nuxt-img
+        v-else
         :src="work.fields.image.fields.file.url"
         width="334"
         height="200"
@@ -105,6 +116,10 @@ export default Vue.extend({
     work: {
       type: Object as PropType<{}>,
       required: true
+    },
+    index: {
+      type: Number,
+      default: 0
     }
   },
   data() {

@@ -6,10 +6,10 @@
         sm="6"
         md="4"
         lg="4"
-        v-for="work in works"
+        v-for="(work, index) in works"
         :key="work.sys.id"
       >
-        <Item :work="work" />
+        <Item :work="work" :index="index" />
       </v-col>
     </Grid>
   </div>
