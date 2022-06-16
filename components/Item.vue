@@ -1,12 +1,17 @@
 <template>
   <div class="item">
     <v-card class="item__card justify-space-between" max-width="334" raised>
-      <nuxt-img
-        :src="work.fields.image.fields.file.url"
+      <v-img
+        :src="
+          $img(work.fields.image.fields.file.url, {
+            height: 200,
+            width: 334,
+            quality: 70
+          })
+        "
+        lazy-src="https://picsum.photos/id/11/10/6?grayscale&blur=1"
         width="334"
         height="200"
-        loading="lazy"
-        quality="80"
         :alt="work.fields.title"
       />
       <v-card-title>{{ work.fields.title }}</v-card-title>
