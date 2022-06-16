@@ -15,7 +15,7 @@
         exact
         class="item-label"
       >
-        <v-icon small>mdi-label</v-icon>
+        <v-icon small>{{ mdiLabel }}</v-icon>
         Category
       </v-btn>
       <v-btn
@@ -37,7 +37,7 @@
         exact
         class="item-label"
       >
-        <v-icon small>mdi-label</v-icon>
+        <v-icon small>{{ mdiLabel }}</v-icon>
         Tag
       </v-btn>
 
@@ -64,7 +64,8 @@
     </div>
     <div class="slug__back">
       <v-btn to="/" color="grey lighten-1" outlined>
-        <v-icon dark left> mdi-arrow-left </v-icon>Back
+        <v-icon dark left>{{ mdiArrowLeft }}</v-icon
+        >Back
       </v-btn>
     </div>
   </div>
@@ -72,6 +73,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { mdiLabel, mdiArrowLeft } from '@mdi/js'
 import { createClient } from '~/plugins/contentful.js'
 const client = createClient()
 
@@ -92,6 +94,12 @@ export default Vue.extend({
 
     return {
       work: response.items[0]
+    }
+  },
+  data() {
+    return {
+      mdiLabel,
+      mdiArrowLeft
     }
   },
   methods: {

@@ -22,7 +22,7 @@
           exact
           class="item__label"
         >
-          <v-icon x-small>mdi-label</v-icon>
+          <v-icon x-small>{{ mdiLabel }}</v-icon>
           Category
         </v-btn>
         <v-btn
@@ -44,7 +44,7 @@
           exact
           class="item__label"
         >
-          <v-icon x-small>mdi-label</v-icon>
+          <v-icon x-small>{{ mdiLabel }}</v-icon>
           Tag
         </v-btn>
 
@@ -65,7 +65,7 @@
         <v-menu v-else open-on-hover transition="slide-y-transition" offset-x>
           <template v-slot:activator="{ on, attrs }">
             <v-btn small v-bind="attrs" v-on="on">
-              <v-icon>mdi-dots-horizontal</v-icon>
+              <v-icon>{{ mdiDotsHorizontal }}</v-icon>
             </v-btn>
           </template>
 
@@ -98,12 +98,19 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
+import { mdiDotsHorizontal, mdiLabel } from '@mdi/js'
 
 export default Vue.extend({
   props: {
     work: {
       type: Object as PropType<{}>,
       required: true
+    }
+  },
+  data() {
+    return {
+      mdiDotsHorizontal,
+      mdiLabel
     }
   }
 })

@@ -8,28 +8,28 @@
         <v-list-item-group active-class="text--accent-4">
           <v-list-item to="/">
             <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
+              <v-icon>{{ mdiHome }}</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item>
 
           <v-list-item to="/about">
             <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
+              <v-icon>{{ mdiAccount }}</v-icon>
             </v-list-item-icon>
             <v-list-item-title>About</v-list-item-title>
           </v-list-item>
 
           <v-list-item to="/gallery">
             <v-list-item-icon>
-              <v-icon>mdi-image-multiple</v-icon>
+              <v-icon>{{ mdiImageMultiple }}</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Gallery</v-list-item-title>
           </v-list-item>
 
           <v-list-item to="/contact">
             <v-list-item-icon>
-              <v-icon>mdi-email</v-icon>
+              <v-icon>{{ mdiEmail }}</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Contact</v-list-item-title>
           </v-list-item>
@@ -42,6 +42,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import SearchForm from '~/components/header/SearchForm.vue'
+import { mdiHome, mdiAccount, mdiImageMultiple, mdiEmail } from '@mdi/js'
 
 export default Vue.extend({
   name: 'Sidebar',
@@ -56,7 +57,11 @@ export default Vue.extend({
   },
   data() {
     return {
-      drawerState: this.drawer
+      drawerState: this.drawer,
+      mdiHome,
+      mdiAccount,
+      mdiImageMultiple,
+      mdiEmail
     }
   },
   watch: {

@@ -18,19 +18,19 @@
 
       <v-card-actions>
         <v-btn color="grey" icon @click="toLink(profile.fields.github)"
-          ><v-icon>mdi-github</v-icon></v-btn
+          ><v-icon>{{ mdiGithub }}</v-icon></v-btn
         >
 
         <v-btn color="green" icon @click="toLink(profile.fields.qiita)">
-          <v-icon>mdi-post</v-icon>
+          <v-icon>{{ mdiPost }}</v-icon>
         </v-btn>
 
         <v-btn color="blue" icon @click="toLink(profile.fields.twitter)">
-          <v-icon>mdi-twitter</v-icon>
+          <v-icon>{{ mdiTwitter }}</v-icon>
         </v-btn>
 
         <v-btn color="purple" icon @click="toLink(profile.fields.instagram)">
-          <v-icon>mdi-instagram</v-icon>
+          <v-icon>{{ mdiInstagram }}</v-icon>
         </v-btn>
       </v-card-actions>
 
@@ -69,6 +69,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
+import { mdiGithub, mdiTwitter, mdiPost, mdiInstagram } from '@mdi/js'
 
 export default Vue.extend({
   props: {
@@ -79,7 +80,11 @@ export default Vue.extend({
   },
   data() {
     return {
-      show: false
+      show: false,
+      mdiGithub,
+      mdiTwitter,
+      mdiPost,
+      mdiInstagram
     }
   },
   methods: {

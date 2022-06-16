@@ -3,7 +3,7 @@
     <v-menu open-on-hover transition="slide-y-transition" offset-y>
       <template v-slot:activator="{ on, attrs }">
         <v-btn icon v-bind="attrs" v-on="on">
-          <v-icon>mdi-dots-vertical</v-icon>
+          <v-icon>{{ mdiDotsVertical }}</v-icon>
         </v-btn>
       </template>
 
@@ -21,8 +21,15 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { mdiDotsVertical } from '@mdi/js'
 
-export default Vue.extend({})
+export default Vue.extend({
+  data() {
+    return {
+      mdiDotsVertical
+    }
+  }
+})
 </script>
 
 <style scoped></style>

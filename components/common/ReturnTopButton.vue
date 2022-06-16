@@ -2,7 +2,7 @@
   <div class="return-top-button">
     <transition name="button">
       <v-btn v-show="buttonActive" fixed bottom right fab @click="returnTop">
-        <v-icon>mdi-chevron-up</v-icon>
+        <v-icon>{{ mdiChevronUp }}</v-icon>
       </v-btn>
     </transition>
   </div>
@@ -10,12 +10,14 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { mdiChevronUp } from '@mdi/js'
 
 export default Vue.extend({
   data() {
     return {
       buttonActive: false,
-      scroll: 0
+      scroll: 0,
+      mdiChevronUp
     }
   },
   mounted() {

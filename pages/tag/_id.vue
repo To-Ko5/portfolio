@@ -2,7 +2,7 @@
   <div class="tag-id">
     <div class="tag-id__result">
       <v-btn to="/tag" color="blue" small outlined>
-        <v-icon left small>mdi-label</v-icon>
+        <v-icon left small>{{ mdiLabel }}</v-icon>
         Tag
       </v-btn>
       <h1 class="tag-id__title">{{ $route.query.tag }}</h1>
@@ -17,6 +17,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { mdiLabel } from '@mdi/js'
 import Item from '~/components/Item.vue'
 import Grid from '~/components/common/Grid.vue'
 
@@ -46,6 +47,11 @@ export default Vue.extend({
 
     return {
       works: response.items
+    }
+  },
+  data() {
+    return {
+      mdiLabel
     }
   }
 })

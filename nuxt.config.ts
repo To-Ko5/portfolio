@@ -59,10 +59,7 @@ const nuxtConfig: NuxtConfig = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    { src: '~/plugins/vee_validate.js' },
-    { src: '~/plugins/vuetify.js' }
-  ],
+  plugins: [{ src: '~/plugins/vee_validate.js' }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -138,7 +135,7 @@ const nuxtConfig: NuxtConfig = {
     },
     defaultAssets: {
       font: false,
-      icons: false
+      icons: 'mdiSvg'
     }
   },
   /*

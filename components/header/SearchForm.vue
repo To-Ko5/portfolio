@@ -11,13 +11,14 @@
     >
     </v-text-field>
     <v-btn icon @click="sendSearch">
-      <v-icon :color="color">mdi-magnify</v-icon>
+      <v-icon :color="color">{{ mdiMagnify }}</v-icon>
     </v-btn>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { mdiMagnify } from '@mdi/js'
 
 const seachFormColor = {
   defaultColor: '',
@@ -28,7 +29,8 @@ export default Vue.extend({
   data() {
     return {
       searchWords: '',
-      color: seachFormColor.defaultColor
+      color: seachFormColor.defaultColor,
+      mdiMagnify
     }
   },
   watch: {
