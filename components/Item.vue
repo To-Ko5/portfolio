@@ -3,9 +3,10 @@
     <v-card class="item__card justify-space-between" max-width="334" raised>
       <nuxt-img
         :src="work.fields.image.fields.file.url"
-        width="400"
+        width="334"
         height="200"
         loading="lazy"
+        quality="80"
         :alt="work.fields.title"
       />
       <v-card-title>{{ work.fields.title }}</v-card-title>
