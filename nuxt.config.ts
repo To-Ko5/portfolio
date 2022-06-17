@@ -55,7 +55,7 @@ const nuxtConfig: NuxtConfig = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['~/assets/css/fonts.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -67,8 +67,18 @@ const nuxtConfig: NuxtConfig = {
     '@nuxt/typescript-build',
     '@nuxtjs/vuetify',
     '@nuxtjs/google-analytics',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
+    'nuxt-purgecss'
   ],
+  /*
+   ** googleAnalytics module configuration
+   ** See https://github.com/nuxt-community/analytics-module
+   */
+  publicRuntimeConfig: {
+    googleAnalytics: {
+      id: process.env.GOOGLE_ANALYTICS_ID
+    }
+  },
   /*
    ** @nuxtjs/google-fonts configuration
    */
@@ -80,13 +90,28 @@ const nuxtConfig: NuxtConfig = {
     }
   },
   /*
-   ** googleAnalytics module configuration
-   ** See https://github.com/nuxt-community/analytics-module
+   ** nuxt-purgecss configuration
    */
-  publicRuntimeConfig: {
-    googleAnalytics: {
-      id: process.env.GOOGLE_ANALYTICS_ID
-    }
+  purgeCSS: {
+    enabled: true,
+    paths: ['node_modules/vuetify/src/**/*.ts'],
+    whitelist: ['v-application', 'v-application--wrap', 'layout', 'row', 'col'],
+    whitelistPatterns: [
+      /^v-((?!application).)*$/,
+      /^theme--*/,
+      /.*-transition/,
+      /^justify-*/,
+      /^p*-[0-9]/,
+      /^m*-auto/,
+      /^m*-[0-9]/,
+      /^p*-auto/,
+      /^text--*/,
+      /--text$/,
+      /^row-*/,
+      /^col-*/,
+      /^d-*/
+    ],
+    whitelistPatternsChildren: [/^v-((?!application).)*$/, /^theme--*/]
   },
   /*
    ** Nuxt.js modules
