@@ -1,28 +1,15 @@
 <template>
-  <div class="noise" :style="backgroundStyles"></div>
+  <div class="noise"></div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-
-export default Vue.extend({
-  computed: {
-    backgroundStyles() {
-      const imgUrl = (this as any).$img(
-        '/top/noise.gif',
-        { animated: true, format: 'webp' },
-        { provider: 'static' }
-      )
-      return {
-        background: `url('${imgUrl}') repeat left top`
-      }
-    }
-  }
-})
+export default Vue.extend({})
 </script>
 
 <style lang="scss" scoped>
 .noise {
+  background: url('~@/assets/img/noise.gif') repeat left top;
   position: absolute;
   top: 0;
   left: 0;
