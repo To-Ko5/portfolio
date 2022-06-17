@@ -5,7 +5,6 @@
         cols="12"
         sm="6"
         md="4"
-        lg="4"
         v-for="(work, index) in works"
         :key="work.sys.id"
       >
@@ -49,3 +48,23 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+// CLS対策の為に直接記述
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+@media (min-width: 600px) {
+  .col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+@media (min-width: 960px) {
+  .col-md-4 {
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
+  }
+}
+</style>
