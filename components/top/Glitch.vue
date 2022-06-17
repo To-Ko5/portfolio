@@ -1,16 +1,30 @@
 <template>
   <div class="glitch">
-    <div class="glitch__img"></div>
-    <div class="glitch__img"></div>
-    <div class="glitch__img"></div>
-    <div class="glitch__img"></div>
-    <div class="glitch__img"></div>
+    <div
+      v-for="n in 5"
+      :key="n"
+      class="glitch__img"
+      :style="backgroundStyles"
+    ></div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-export default Vue.extend({})
+export default Vue.extend({
+  computed: {
+    backgroundStyles() {
+      const imgUrl = (this as any).$img(
+        '/top/keyvisual.jpg',
+        { format: 'webp' },
+        { provider: 'static' }
+      )
+      return {
+        background: `url('${imgUrl}') no-repeat center`
+      }
+    }
+  }
+})
 </script>
 
 <style lang="scss" scoped>
@@ -51,7 +65,6 @@ export default Vue.extend({})
     left: calc(-1 * var(--gap-horizontal));
     width: calc(100% + var(--gap-horizontal) * 2);
     height: calc(100% + var(--gap-vertical) * 2);
-    background: url('~@/assets/img/keyvisual.jpg') no-repeat center;
     background-color: var(--blend-color-1);
     background-size: cover;
     transform: translate3d(0, 0, 0);
