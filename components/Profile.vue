@@ -1,12 +1,15 @@
 <template>
   <div class="profile">
     <v-card class="mx-auto" max-width="600px">
-      <v-img
+      <nuxt-img
         :src="profile.fields.profileImg.fields.file.url"
         lazy-src="https://picsum.photos/id/11/10/6?grayscale&blur=1"
-        max-height="400"
-        min-height="200"
-      ></v-img>
+        width="668"
+        height="400"
+        preload
+        quality="80"
+        :alt="`${profile.fields.name}` + 'image'"
+      />
 
       <v-card-title class="name">
         <h1 class="name__title">{{ profile.fields.name }}</h1>
@@ -98,6 +101,12 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .profile {
   padding: 0 8px;
+  & img {
+    max-width: 100%;
+    @media (max-width: 768px) {
+      height: auto;
+    }
+  }
 }
 
 .name {
