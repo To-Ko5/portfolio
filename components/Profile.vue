@@ -8,7 +8,7 @@
         height="400"
         preload
         quality="80"
-        :alt="`${profile.fields.name}` + 'image'"
+        :alt="`${profile.fields.name}` + '-' + 'image'"
       />
 
       <v-card-title class="name">
