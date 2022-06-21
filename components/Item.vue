@@ -136,9 +136,6 @@ export default Vue.extend({
   &__card {
     margin: 0 auto;
     width: 100%;
-    & > img {
-      max-width: 100%;
-    }
   }
   &__label {
     margin-right: 8px;

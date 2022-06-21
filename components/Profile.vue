@@ -102,7 +102,6 @@ export default Vue.extend({
 .profile {
   padding: 0 8px;
   & img {
-    max-width: 100%;
     @media (max-width: 768px) {
       height: auto;
     }
