@@ -5,6 +5,7 @@
       lazy-src="https://picsum.photos/id/11/10/6?grayscale&blur=1"
       @click.stop="openDialog"
       class="gallery-image"
+      :alt="`${gallery.fields.title}` + '-' + 'thumbnail'"
     ></v-img>
     <v-dialog
       v-model="dialog"
