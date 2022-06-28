@@ -1,8 +1,17 @@
 <template>
   <div class="slug">
     <div class="key-visual">
-      <img :src="work.fields.image.fields.file.url" class="key-visual__image" />
+      <nuxt-img
+        :src="work.fields.image.fields.file.url"
+        :width="work.fields.image.fields.file.details.image.width"
+        :height="work.fields.image.fields.file.details.image.height"
+        preload
+        quality="80"
+        :alt="`${work.fields.title}` + '-' + 'image'"
+        fit="contain"
+      />
     </div>
+
     <h1 class="slug__title">{{ work.fields.title }}</h1>
     <p class="slug__sub-title">{{ work.fields.subtitle }}</p>
 
@@ -165,8 +174,9 @@ export default Vue.extend({
 .key-visual {
   width: 100%;
   margin-bottom: 16px;
-  &__image {
+  & > img {
     max-width: 100%;
+    height: clamp(300px, 50%, 400px);
   }
 }
 
