@@ -17,13 +17,13 @@ export default Vue.extend({
     Profile
   },
   async asyncData() {
-    const [response]: any = await Promise.all([
-      client.getEntries({
+    const response = await client
+      .getEntries({
         content_type: 'profile'
       })
-    ]).catch((error) => {
-      console.log(error)
-    })
+      .catch((error: any) => {
+        console.log(error)
+      })
 
     return {
       profile: response.items[0]

@@ -28,14 +28,14 @@ export default Vue.extend({
     Grid
   },
   async asyncData() {
-    const [response]: any = await Promise.all([
-      client.getEntries({
+    const response = await client
+      .getEntries({
         content_type: 'work',
         order: '-sys.createdAt'
       })
-    ]).catch((error) => {
-      console.log(error)
-    })
+      .catch((error: any) => {
+        console.log(error)
+      })
 
     return {
       works: response.items
