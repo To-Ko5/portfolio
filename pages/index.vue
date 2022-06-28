@@ -1,5 +1,9 @@
 <template>
   <div class="top-page">
+    <transition name="fade">
+      <div v-if="!isComplete" class="loading"></div>
+    </transition>
+
     <Grid>
       <v-col
         cols="12"
@@ -41,6 +45,20 @@ export default Vue.extend({
       works: response.items
     }
   },
+  data() {
+    return {
+      isComplete: false
+    }
+  },
+  mounted() {
+    if (document.readyState === 'complete') {
+      this.isComplete = true
+    } else {
+      window.addEventListener('load', () => {
+        this.isComplete = true
+      })
+    }
+  },
   head() {
     return {
       title: 'Home'
@@ -66,5 +84,34 @@ export default Vue.extend({
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
   }
+}
+
+.loading {
+  background: #212121;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  &::after {
+    content: '';
+    background: url('~@/assets/img/noise.gif') repeat left top;
+    opacity: 0.4;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
