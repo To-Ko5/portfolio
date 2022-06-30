@@ -34,14 +34,14 @@ export default Vue.extend({
     Grid
   },
   async asyncData() {
-    const [response]: any = await Promise.all([
-      client.getEntries({
+    const response = await client
+      .getEntries({
         content_type: 'category',
         order: '-sys.id'
       })
-    ]).catch((error) => {
-      console.log(error)
-    })
+      .catch((error: any) => {
+        console.log(error)
+      })
     return {
       categories: response.items
     }

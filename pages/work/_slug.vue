@@ -88,14 +88,14 @@ const client = createClient()
 
 export default Vue.extend({
   async asyncData({ params, redirect }) {
-    const [response]: any = await Promise.all([
-      client.getEntries({
+    const response = await client
+      .getEntries({
         content_type: 'work',
         'fields.slug': params.slug
       })
-    ]).catch((error) => {
-      console.log(error)
-    })
+      .catch((error: any) => {
+        console.log(error)
+      })
 
     if (!response.items[0]) {
       redirect('/')

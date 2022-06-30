@@ -38,15 +38,15 @@ export default Vue.extend({
     Grid
   },
   async asyncData({ params }) {
-    const [response]: any = await Promise.all([
-      client.getEntries({
+    const response = await client
+      .getEntries({
         content_type: 'work',
         query: params.keywords,
         order: '-sys.createdAt'
       })
-    ]).catch((error) => {
-      console.log(error)
-    })
+      .catch((error: any) => {
+        console.log(error)
+      })
 
     if (response.items.length <= 0) {
       console.log(response.items.length)

@@ -31,15 +31,15 @@ export default Vue.extend({
     Grid
   },
   async asyncData({ params, redirect }) {
-    const [response]: any = await Promise.all([
-      client.getEntries({
+    const response = await client
+      .getEntries({
         content_type: 'work',
         'fields.category.sys.id': params.id,
         order: '-sys.createdAt'
       })
-    ]).catch((error) => {
-      console.log(error)
-    })
+      .catch((error: any) => {
+        console.log(error)
+      })
 
     if (response.items == '') {
       redirect('/category')
