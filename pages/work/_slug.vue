@@ -190,3 +190,11 @@ export default Vue.extend({
   -webkit-overflow-scrolling: touch;
 }
 </style>
+
+<style lang="scss">
+.slug__content {
+  ul {
+    margin: 8px 0;
+  }
+}
+</style>
