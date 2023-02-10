@@ -66,19 +66,26 @@ const nuxtConfig: NuxtConfig = {
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxtjs/vuetify',
-    '@nuxtjs/google-analytics',
+    '@nuxtjs/google-gtag',
     '@nuxtjs/google-fonts',
     'nuxt-purgecss'
   ],
   /*
    ** googleAnalytics module configuration
-   ** See https://github.com/nuxt-community/analytics-module
+   ** See https://www.npmjs.com/package/@nuxtjs/google-gtag
    */
+  'google-gtag': {
+    id: process.env.GOOGLE_ANALYTICS_ID,
+    debug: true
+  },
+  /*
+  古いアナリティクスの設定
   publicRuntimeConfig: {
     googleAnalytics: {
       id: process.env.GOOGLE_ANALYTICS_ID
     }
   },
+   */
   /*
    ** @nuxtjs/google-fonts configuration
    */
