@@ -76,7 +76,7 @@ const nuxtConfig: NuxtConfig = {
    */
   'google-gtag': {
     id: process.env.GOOGLE_ANALYTICS_ID,
-    debug: true
+    debug: false
   },
   /*
   古いアナリティクスの設定
